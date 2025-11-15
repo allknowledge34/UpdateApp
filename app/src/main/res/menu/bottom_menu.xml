@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/chatbot"
+        android:icon="@drawable/ic_setting_unselected"
+        android:title="Chatbot"/>
+
+    <item
+        android:id="@+id/accounts"
+        android:icon="@drawable/ic_contacts_unselected"
+        android:title="Profile"/>
+</menu>

@@ -1,37 +1,57 @@
 package com.example.updateapp;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import com.example.updateapp.databinding.ActivityMainBinding;
+import com.example.updateapp.views.fragments.ChatbotFragment;
 import com.example.updateapp.views.fragments.ProfileFragment;
+
+import nl.joery.animatedbottombar.AnimatedBottomBar;
 
 public class MainActivity extends AppCompatActivity {
 
-    ActivityMainBinding binding;
+    private ActivityMainBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.txt.setOnClickListener(new View.OnClickListener() {
+        loadFragment(new ChatbotFragment());
+        binding.bottomBar.setOnTabSelectListener(new AnimatedBottomBar.OnTabSelectListener() {
             @Override
-            public void onClick(View v) {
-                ProfileFragment fragment = new ProfileFragment();
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.fragment_container, fragment)
-                        .addToBackStack(null)
-                        .commit();
+            public void onTabSelected(int lastIndex, AnimatedBottomBar.Tab lastTab, int newIndex, AnimatedBottomBar.Tab newTab) {
+                Fragment selectedFragment = null;
+
+                switch (newIndex) {
+                    case 0:
+                        selectedFragment = new ChatbotFragment();
+                        break;
+                    case 1:
+                        selectedFragment = new ProfileFragment();
+                }
+
+                if (selectedFragment != null) {
+                    loadFragment(selectedFragment);
+                }
+            }
+
+            @Override
+            public void onTabReselected(int index, AnimatedBottomBar.Tab tab) {
+
             }
         });
+
+
     }
+
+    private void loadFragment(Fragment fragment) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.content, fragment);
+        transaction.commit();
+    }
+
 }
