@@ -18,6 +18,11 @@
     <color name="greenColor">#4CAF50</color>
     <color name="redColor">#F44336</color>
     <color name="category1">#4CAF50</color>
+    <color name="transparent">#00D61355</color>
+    <color name="themeColor">#D61355</color>
+    <color name="themeLightColor">#ffe6e8</color>
+    <color name="productBGColor">#fca6c8</color>
+    <color name="background">#FFF5F8</color>
     <color name="category2">#F44336</color>
     <color name="category3">#9C27B0</color>
     <color name="category4">#2196F3</color>
