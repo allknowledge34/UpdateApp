@@ -2,65 +2,132 @@ package com.example.updateapp.views.fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
 
-import com.example.updateapp.R;
+import com.example.updateapp.adapters.MessageAdapter;
+import com.example.updateapp.databinding.FragmentChatbotBinding;
+import com.example.updateapp.models.MessageModel;
+import com.example.updateapp.utils.GeminiResp;
+import com.example.updateapp.utils.ResponseCallback;
+import com.google.ai.client.generativeai.java.ChatFutures;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ChatbotFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.List;
+
 public class ChatbotFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    FragmentChatbotBinding binding;
+    private EditText messageEt;
+    private ImageView sendBtn;
+    private RecyclerView recyclerView;
+    private MessageAdapter adapter;
+    private List<MessageModel> messageList = new ArrayList<>();
+    private ChatFutures chatModel;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        binding = FragmentChatbotBinding.inflate(inflater, container, false);
+        View view = binding.getRoot();
 
-    public ChatbotFragment() {
-        // Required empty public constructor
-    }
+        messageEt = binding.message;
+        sendBtn = binding.send;
+        recyclerView = binding.recyclerView;
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ChatbotFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ChatbotFragment newInstance(String param1, String param2) {
-        ChatbotFragment fragment = new ChatbotFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        layoutManager.setStackFromEnd(true);
+        recyclerView.setLayoutManager(layoutManager);
+
+        adapter = new MessageAdapter(messageList);
+        recyclerView.setAdapter(adapter);
+
+        GeminiResp geminiResp = new GeminiResp();
+        chatModel = geminiResp.getModel().startChat();
+
+        binding.mic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "coming soon", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        binding.btnHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "coming soon", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        binding.file.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "coming soon", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        sendBtn.setOnClickListener(v -> {
+            String query = messageEt.getText().toString().trim();
+            if (!query.isEmpty()) {
+                addToChat(query, MessageModel.SENT_BY_ME);
+                messageEt.setText("");
+
+
+                GeminiResp.getResponse(chatModel, query, new ResponseCallback() {
+                    @Override
+                    public void onResponse(String response) {
+                        if (getActivity() != null) {
+                            getActivity().runOnUiThread(() -> {
+                                addToChat(response, MessageModel.SENT_BY_BOT);
+                            });
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable throwable) {
+                        if (getActivity() != null) {
+                            getActivity().runOnUiThread(() -> {
+                                addToChat("Error: " + throwable.getMessage(), MessageModel.SENT_BY_BOT);
+                            });
+                        }
+                    }
+                });
+            }
+            else {
+                Toast.makeText(getContext(), "write something", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        return view;
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        requireActivity().getWindow().setFlags(
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+        );
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_chatbot, container, false);
+    private void addToChat(String message, String sentBy) {
+        requireActivity().runOnUiThread(() -> {
+            messageList.add(new MessageModel(message, sentBy));
+            adapter.notifyDataSetChanged();
+            recyclerView.smoothScrollToPosition(adapter.getItemCount());
+        });
     }
 }

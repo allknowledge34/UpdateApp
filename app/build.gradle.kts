@@ -54,4 +54,7 @@ dependencies {
     implementation ("de.hdodenhof:circleimageview:3.1.0")
     implementation("nl.joery.animatedbottombar:library:1.1.0")
     implementation ("com.squareup.picasso:picasso:2.8")
+    implementation ("com.google.ai.client.generativeai:generativeai:0.6.0")
+    implementation ("com.google.guava:guava:31.0.1-android")
+    implementation ("org.reactivestreams:reactive-streams:1.0.4")
 }

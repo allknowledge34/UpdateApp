@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:padding="10dp">
 
     <LinearLayout
@@ -15,44 +16,50 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="32dp"
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/btnBack"
+                android:id="@+id/btnHistory"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:src="@drawable/ic_back"
+                android:src="@drawable/outline_history_24"
                 android:background="@drawable/rounded_corner_extra_small"
                 android:backgroundTint="@color/themeLightColor"
                 app:tint="@color/themeColor"
                 android:padding="5dp"/>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="120dp"
+                android:layout_marginEnd="100dp"
+                android:layout_toStartOf="@+id/mic"
+                android:layout_toEndOf="@+id/btnHistory"
+                android:text="Chatbot"
+                android:layout_centerVertical="true"
+                android:singleLine="true"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
             <ImageView
+                android:id="@+id/mic"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:src="@drawable/ic_notification"
+                android:layout_alignParentEnd="true"
                 android:background="@drawable/rounded_corner_extra_small"
                 android:backgroundTint="@color/themeLightColor"
-                app:tint="@color/themeColor"
                 android:padding="5dp"
-                android:layout_alignParentEnd="true"/>
+                android:src="@drawable/outline_adaptive_audio_mic_24"
+                app:tint="@color/themeColor" />
 
         </RelativeLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ChatBoot"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:layout_marginTop="10dp"/>
-
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/recyclerChats"/>
+            android:layout_height="match_parent"/>
 
     </LinearLayout>
 
@@ -66,6 +73,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
+            android:id="@+id/file"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:src="@drawable/ic_link"
@@ -75,6 +83,7 @@
             app:tint="@color/themeColor"/>
 
         <EditText
+            android:id="@+id/message"
             android:background="@color/transparent"
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -85,6 +94,7 @@
             android:padding="10dp"/>
 
         <ImageView
+            android:id="@+id/send"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:src="@drawable/ic_send"
