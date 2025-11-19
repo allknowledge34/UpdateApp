@@ -468,7 +468,7 @@
                         android:layout_centerVertical="true"
                         android:layout_margin="5dp"
                         android:padding="3dp"
-                        android:src="@drawable/logout_icon">
+                        android:src="@drawable/contact_icon">
 
                     </ImageView>
 
@@ -514,7 +514,7 @@
                         android:layout_centerVertical="true"
                         android:layout_margin="5dp"
                         android:padding="3dp"
-                        android:src="@drawable/logout_icon">
+                        android:src="@drawable/inquiry_icon">
 
                     </ImageView>
 

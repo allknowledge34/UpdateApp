@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.example.updateapp.R;
 import com.example.updateapp.databinding.FragmentProfileBinding;
 import com.example.updateapp.models.UserModel;
+import com.example.updateapp.views.activites.LanguageActivity;
 import com.example.updateapp.views.activites.LoginActivity;
 import com.example.updateapp.views.activites.NewUpdateActivity;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -114,18 +115,39 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        binding.relLang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(requireContext(), "Coming Soon", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getContext(), LanguageActivity.class);
+                startActivity(intent);
+            }
+        });
+
         binding.fetchImage.setOnClickListener(v -> checkPermissionAndOpenGallery());
 
         binding.share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String shareLink = "https://www.pinkesh.site/projects/FinTrack";
+                String shareLink = "https://www.indusappstore.com/apps/finance/fintrack/com.sachin.fintrack?page=details&id=com.sachin.fintrack";
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
                 intent.putExtra(Intent.EXTRA_TEXT, "Hey, check out this amazing app: " + shareLink);
                 startActivity(Intent.createChooser(intent, "Share via"));
             }
+        });
+
+        binding.genernal.setOnClickListener(v -> {
+            startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse("https://www.aifintrack.xyz")));
+        });
+
+        binding.relContact.setOnClickListener(v -> {
+            Uri uri = Uri.parse("smsto:9304519076");
+            Intent intent = new Intent(Intent.ACTION_SENDTO, uri);
+            intent.putExtra("sms_body", "the SMS text");
+            startActivity(intent);
         });
 
         binding.relLogout.setOnClickListener(v -> {
