@@ -119,14 +119,14 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/imageView5"
+                    android:id="@+id/email_btn"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/email" />
 
                 <ImageView
-                    android:id="@+id/imageView6"
+                    android:id="@+id/google_btn"
                     android:layout_width="0dp"
                     android:layout_height="48dp"
                     android:layout_weight="1"

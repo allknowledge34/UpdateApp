@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UpdateApp">
         <activity
+            android:name=".views.activites.OTPActivity"
+            android:exported="false" />
+        <activity
             android:name=".views.activites.LanguageActivity"
             android:exported="false" />
         <activity
@@ -38,7 +41,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
     </application>
 
 </manifest>

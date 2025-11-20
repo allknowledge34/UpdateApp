@@ -57,4 +57,5 @@ dependencies {
     implementation ("com.google.ai.client.generativeai:generativeai:0.6.0")
     implementation ("com.google.guava:guava:31.0.1-android")
     implementation ("org.reactivestreams:reactive-streams:1.0.4")
+    implementation("com.google.android.gms:play-services-auth:21.3.0")
 }

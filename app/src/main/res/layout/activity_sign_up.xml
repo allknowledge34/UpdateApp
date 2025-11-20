@@ -104,6 +104,31 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="Mobile Number"
+                android:textSize="18sp"
+                android:textColor="#2f3363"
+                android:textStyle="bold"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"/>
+
+            <EditText
+                android:id="@+id/edtMobile"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginTop="8dp"
+                android:hint="Enter the Mobile Number"
+                android:padding="8dp"
+                android:textSize="16sp"
+                android:textColor="#A2A4b5"
+                android:ems="10"
+                android:inputType="textPhonetic"
+                android:background="@drawable/background_edit" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:text="Your Password"
                 android:textSize="18sp"
                 android:textColor="#2f3363"
@@ -135,14 +160,14 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/imageView5"
+                    android:id="@+id/email_btn"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/email" />
 
                 <ImageView
-                    android:id="@+id/imageView6"
+                    android:id="@+id/google_btn"
                     android:layout_width="0dp"
                     android:layout_height="48dp"
                     android:layout_weight="1"

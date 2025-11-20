@@ -2,11 +2,12 @@ package com.example.updateapp.models;
 
 public class UserModel {
 
-    private String name, email, password, profile;
+    private String name, email, number, password, profile;
 
-    public UserModel(String name, String email, String password, String profile) {
+    public UserModel(String name, String email, String number, String password, String profile) {
         this.name = name;
         this.email = email;
+        this.number = number;
         this.password = password;
         this.profile = profile;
     }
@@ -29,6 +30,14 @@ public class UserModel {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
     }
 
     public String getPassword() {
