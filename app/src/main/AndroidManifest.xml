@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UpdateApp">
         <activity
+            android:name=".views.activites.OnboardingActivity"
+            android:exported="false" />
+        <activity
             android:name=".views.activites.OTPActivity"
             android:exported="false" />
         <activity
