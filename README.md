@@ -16,7 +16,7 @@ UpdateApp is an open-source development playground created to build and test new
 
 **UI:** Xml, Android Views, Material Components
 
-**Server:** Firebase
+**Backend:** Firebase
 
 **Auth:** Firebase Authentication (Email/Phone/Google)
 
