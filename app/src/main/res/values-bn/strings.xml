@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">UpdateApp</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="default_web_client_id">610596201338-8jkqtv5msdu5q7mi0qs0gho2tu8a8esv.apps.googleusercontent.com</string>
+    <string name="language">ভাষা</string>
+    <string name="language_english">ইংরেজি</string>
+    <string name="language_chinese">চীনা</string>
+    <string name="language_hindi">হিন্দি</string>
+    <string name="language_spanish">স্প্যানিশ</string>
+    <string name="language_arabic">আরবি</string>
+    <string name="language_french">ফরাসি</string>
+    <string name="language_bengali">বাংলা</string>
+    <string name="language_portuguese">পর্তুগিজ</string>
+    <string name="language_russian">রাশিয়ান</string>
+    <string name="language_urdu">উর্দু</string>
+</resources>
