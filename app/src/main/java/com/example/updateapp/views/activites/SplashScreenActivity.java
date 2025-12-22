@@ -1,5 +1,6 @@
 package com.example.updateapp.views.activites;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.WindowManager;
@@ -10,6 +11,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.updateapp.Helpers.LocaleHelper;
+import com.example.updateapp.Helpers.SaveState;
 import com.example.updateapp.R;
 
 import java.util.Timer;
@@ -26,6 +29,9 @@ public class SplashScreenActivity extends AppCompatActivity {
         );
         setContentView(R.layout.activity_splash_screen);
 
+        // Check if language has been selected before
+        SaveState languageState = new SaveState(this, "LANGUAGE_SELECTED");
+        boolean languageSelected = languageState.getState() == 1;
 
         new Timer().schedule(new TimerTask() {
             @Override
@@ -33,13 +39,25 @@ public class SplashScreenActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Intent intent = new Intent();
-                        intent.setClass(SplashScreenActivity.this, OnboardingActivity.class);
+                        Intent intent;
+                        if (!languageSelected) {
+                            // Show language selection screen on first launch
+                            intent = new Intent(SplashScreenActivity.this, LanguageActivity.class);
+                            intent.putExtra("isFirstLaunch", true);
+                        } else {
+                            // Go to onboarding
+                            intent = new Intent(SplashScreenActivity.this, OnboardingActivity.class);
+                        }
                         startActivity(intent);
                         finish();
                     }
                 });
             }
-        },500);
+        }, 500);
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.attachBaseContext(newBase));
     }
 }

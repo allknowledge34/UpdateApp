@@ -1,6 +1,7 @@
 package com.example.updateapp.views.activites;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.updateapp.Helpers.LocaleHelper;
 import com.example.updateapp.databinding.ActivityForgetBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -80,5 +82,10 @@ public class ForgetActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.attachBaseContext(newBase));
     }
 }

@@ -51,3 +51,4 @@ public class LocaleHelper {
         return prefs.getString(KEY_LANGUAGE, "en"); // Default to English
     }
 }
+

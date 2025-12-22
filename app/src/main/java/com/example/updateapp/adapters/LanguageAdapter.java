@@ -71,3 +71,4 @@ public class LanguageAdapter extends RecyclerView.Adapter<LanguageAdapter.ViewHo
         }
     }
 }
+

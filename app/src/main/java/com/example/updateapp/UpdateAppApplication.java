@@ -11,3 +11,4 @@ public class UpdateAppApplication extends Application {
         super.attachBaseContext(LocaleHelper.attachBaseContext(base));
     }
 }
+

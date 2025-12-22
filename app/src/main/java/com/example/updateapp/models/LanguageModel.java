@@ -35,3 +35,4 @@ public class LanguageModel {
         isSelected = selected;
     }
 }
+

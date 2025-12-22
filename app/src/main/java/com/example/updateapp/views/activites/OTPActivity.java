@@ -1,6 +1,7 @@
 package com.example.updateapp.views.activites;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -15,6 +16,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.updateapp.Helpers.LocaleHelper;
 import com.example.updateapp.MainActivity;
 import com.example.updateapp.databinding.ActivityOtpactivityBinding;
 import com.example.updateapp.models.UserModel;
@@ -225,4 +227,8 @@ public class OTPActivity extends AppCompatActivity {
                 });
     }
 
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.attachBaseContext(newBase));
+    }
 }

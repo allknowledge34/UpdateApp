@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.updateapp.Helpers.LocaleHelper;
+import com.example.updateapp.Helpers.SaveState;
 import com.example.updateapp.R;
 import com.example.updateapp.adapters.LanguageAdapter;
 import com.example.updateapp.models.LanguageModel;
@@ -59,7 +60,18 @@ public class LanguageActivity extends AppCompatActivity {
         adapter.updateSelection(currentLanguageCode);
 
         // Done button click handler
-        doneButton.setOnClickListener(v -> finish());
+        doneButton.setOnClickListener(v -> {
+            // Check if this is first launch
+            boolean isFirstLaunch = getIntent().getBooleanExtra("isFirstLaunch", false);
+            if (isFirstLaunch) {
+                // Mark language as selected and go to onboarding
+                SaveState languageState = new SaveState(this, "LANGUAGE_SELECTED");
+                languageState.setState(1);
+                Intent intent = new Intent(LanguageActivity.this, OnboardingActivity.class);
+                startActivity(intent);
+            }
+            finish();
+        });
 
         // Set title
         titleText.setText(getString(R.string.language));
@@ -95,6 +107,10 @@ public class LanguageActivity extends AppCompatActivity {
         if (!selectedLanguageCode.equals(currentLanguageCode)) {
             // Save and apply new language
             LocaleHelper.setLocale(this, selectedLanguageCode);
+            
+            // Mark language as selected (for first launch)
+            SaveState languageState = new SaveState(this, "LANGUAGE_SELECTED");
+            languageState.setState(1);
             
             // Update current language
             currentLanguageCode = selectedLanguageCode;
