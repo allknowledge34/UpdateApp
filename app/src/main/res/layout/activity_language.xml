@@ -73,7 +73,7 @@
         android:layout_below="@+id/rel_top">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rev_langauge"
+            android:id="@+id/rev_language"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipToPadding="false"

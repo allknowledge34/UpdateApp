@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -43,7 +44,7 @@ public class LanguageActivity extends AppCompatActivity {
         });
 
         // Initialize views
-        recyclerView = findViewById(R.id.rev_langauge);
+        recyclerView = findViewById(R.id.rev_language);
         TextView titleText = findViewById(R.id.txt_title);
         ImageView doneButton = findViewById(R.id.img_done);
 
@@ -75,6 +76,17 @@ public class LanguageActivity extends AppCompatActivity {
 
         // Set title
         titleText.setText(getString(R.string.language));
+
+        // Handle back button behavior
+        boolean isFirstLaunch = getIntent().getBooleanExtra("isFirstLaunch", false);
+        OnBackPressedCallback callback = new OnBackPressedCallback(!isFirstLaunch) {
+            @Override
+            public void handleOnBackPressed() {
+                // For normal access, allow back navigation
+                finish();
+            }
+        };
+        getOnBackPressedDispatcher().addCallback(this, callback);
     }
 
     private List<LanguageModel> createLanguageList() {
