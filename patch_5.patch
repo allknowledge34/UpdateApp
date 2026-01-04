@@ -1,0 +1,123 @@
+diff --git a/main.go b/main.go
+--- a/main.go
++++ b/main.go
+@@ -1,7 +1,6 @@
+ package main
+ 
+ import (
+-	"allknowledge34/UpdateApp/config"
+ 	"flag"
+ 	"log"
+ )
+@@ -10,23 +9,28 @@ func init() {
+ }
+ 
+ func main() {
++	// Initialize config
++	cfg := config.New()
++
++	// Setup update service with proper dependencies
++	updateSvc := newUpdateService(cfg)
++
+ 	fs := flag.NewFlagSet("update", flag.ExitOnError)
+ 	versionPtr := fs.Bool("version", false, "Show version")
+ 	listUpdatesPtr := fs.Bool("list-updates", false, "List available updates")
+ 	applyUpdatesPtr := fs.Bool("apply-updates", false, "Apply all available updates")
+ 
+-	fs.Parse(os.Args[1:])
++	if err := fs.Parse(os.Args[1:]); err != nil {
++		log.Fatal(err)
++	}
+ 
+ 	if *versionPtr {
+-		fmt.Printf("UpdateApp Version %s\n", version.GetVersion())
++		fmt.Printf("UpdateApp Version %s\n", updateSvc.getVersion())
+ 		return
+ 	}
+ 
+ 	if *listUpdatesPtr {
+-		updateSvc, err := config.New().GetUpdateService()
+-		if err != nil {
+-			log.Fatal(err)
+-		}
+-
++		updates, err := updateSvc.listAvailableUpdates()
++		if err != nil {
++			log.Fatal(err)
++		}
+ 		for _, u := range updates {
+ 			fmt.Printf("ID: %s, Version: %s\n", u.ID, u.Version)
+ 		}
+@@ -38,10 +42,10 @@ func main() {
+ 	if *applyUpdatesPtr {
+-		updateSvc, err := config.New().GetUpdateService()
+-		if err != nil {
++		err := updateSvc.applyUpdates()
++		if err != nil {
+ 			log.Fatal(err)
+ 		}
+ 
+-		fmt.Println("Updates applied successfully")
++		fmt.Println("Updates applied successfully.")
+ 	}
+ }
+diff --git a/update_service.go b/update_service.go
+--- a/update_service.go
++++ b/update_service.go
+@@ -1,5 +1,6 @@
+ package update
+ 
+ import (
++	"context"
+ 	"errors"
+ 	"fmt"
+ )
+@@ -7,9 +8,23 @@ type Update struct {
+ 	ID      string `json:"id"`
+ 	Version string `json:"version"`
+ }
+ 
+-type UpdateService interface {
+-	GetUpdate() error
++type UpdateService struct {
++	logger     Logger
++	config     *Config
++	repository Repository
++	context    context.Context
++}
++
++func newUpdateService(config *Config) (*UpdateService, error) {
++	if config == nil {
++		return nil, errors.New("config must not be nil")
++	}
++
++	us := &UpdateService{
++		logger:     config.Logger,
++		config:     config,
++		repository: config.Repository,
++		context:    context.Background(),
++	}
++	return us, nil
+ }
+ 
+ func (us *UpdateService) listAvailableUpdates() ([]Update, error) {
+@@ -17,6 +30,9 @@ func (us *UpdateService) listAvailableUpdates() ([]Update, error) {
+ 	return nil, fmt.Errorf("update service not initialized")
+ }
+ 
++func (us *UpdateService) getVersion() string {
++	return "1.0.0" // placeholder
++}
++
+ func (us *UpdateService) applyUpdates() error {
+ 	if us == nil {
+@@ -24,6 +40,8 @@ func (us *UpdateService) applyUpdates() error {
+ 	return fmt.Errorf("update service not initialized")
+ }
+ 
+-func NewUpdateService() (*UpdateService, error) {
+-	return nil, errors.New("not implemented yet")
++func (us *UpdateService) listAvailableUpdates() ([]Update, error) {
++	// Implementation here
++	return nil, nil
+ }
