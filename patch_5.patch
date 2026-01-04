@@ -1,0 +1,82 @@
+--- a/src/main/java/com/updateapp/UpdateManager.java
++++ b/src/main/java/com/updateapp/UpdateManager.java
+@@ -15,7 +15,6 @@ public class UpdateManager {
+     private static final int MAX_RETRIES = 3;
+     private static final long RETRY_DELAY_MS = 2000;
+ 
+-    private final String TAG = "UpdateManager";
+     private final Context context;
+     private final UpdateCallback callback;
+ 
+@@ -24,7 +23,7 @@ public class UpdateManager {
+     public UpdateManager(Context context, UpdateCallback callback) {
+         this.context = context.getApplicationContext();
+         this.callback = callback;
+-        Log.i(TAG, "UpdateManager initialized");
++        //Log.i(TAG, "UpdateManager initialized");
+     }
+ 
+     /**
+@@ -32,7 +31,7 @@ public class UpdateManager.java
+      * @param versionCode The current version code of the app.
+      */
+     public void checkForUpdates(int versionCode) {
+-        Log.d(TAG, "Checking for updates. Current version: " + versionCode);
++        //Log.d(TAG, "Checking for updates. Current version: " + versionCode);
+ 
+         if (!isNetworkAvailable()) {
+             callback.onNoConnection();
+@@ -42,7 +41,7 @@ public class UpdateManager.java
+     }
+ 
+     private boolean isNetworkAvailable() {
+-        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
++        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+         return activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+     }
+@@ -50,7 +49,7 @@ public class UpdateManager.java
+     private void fetchUpdateInfo(int versionCode) {
+         // Implementation of fetching update info from server
+         new Thread(() -> {
+-            Log.d(TAG, "Starting update check thread");
++            //Log.d(TAG, "Starting update check thread");
+ 
+             int retries = 0;
+             boolean success = false;
+@@ -61,7 +60,7 @@ public class UpdateManager.java
+                 try {
+                     if (retries > 0) {
+                         Thread.sleep(RETRY_DELAY_MS);
+-                        Log.w(TAG, "Retrying update check. Attempt: " + retries);
++                        //Log.w(TAG, "Retrying update check. Attempt: " + retries);
+                     }
+ 
+                     String response = sendUpdateRequest(versionCode);
+@@ -72,14 +71,14 @@ public class UpdateManager.java
+                         if (updateInfo != null) {
+                             success = true;
+                             callback onUpdateAvailable(updateInfo);
+-                            Log.i(TAG, "Update available. Version: " + updateInfo.getVersion());
++                            //Log.i(TAG, "Update available. Version: " + updateInfo.getVersion());
+                         } else {
+                             callback.onNoUpdate();
+-                            Log.d(TAG, "No update available");
++                            //Log.d(TAG, "No update available");
+                         }
+                     } catch (IOException e) {
+                         retries++;
+-                        Log.e(TAG, "Error checking for updates", e);
++                        //Log.e(TAG, "Error checking for updates", e);
+                     }
+                 } while (!success && retries < MAX_RETRIES);
+ 
+@@ -90,7 +89,7 @@ public class UpdateManager.java
+         }).start();
+     }
+ 
+-    private String sendUpdateRequest(int versionCode) throws IOException {
++    private String sendUpdateRequest(int versionCode) throws IOException {
+         // Implementation of sending update request and parsing response
+         return null;
+     }
