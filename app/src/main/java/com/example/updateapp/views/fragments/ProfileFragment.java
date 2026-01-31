@@ -76,7 +76,7 @@ public class ProfileFragment extends Fragment {
                     if (isGranted) {
                         openGallery();
                     } else {
-                        Toast.makeText(getContext(), "Permission Denied!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), getString(R.string.permission_denied), Toast.LENGTH_SHORT).show();
                     }
                 }
         );
@@ -90,8 +90,8 @@ public class ProfileFragment extends Fragment {
         storage = FirebaseStorage.getInstance();
 
         progressDialog = new ProgressDialog(getContext());
-        progressDialog.setTitle("Profile Uploading");
-        progressDialog.setMessage("We Are Uploading Your Profile");
+        progressDialog.setTitle(getString(R.string.profile_uploading));
+        progressDialog.setMessage(getString(R.string.uploading_profile));
 
         binding.privacyPolicy.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,8 +135,8 @@ public class ProfileFragment extends Fragment {
                 String shareLink = "https://www.indusappstore.com/apps/finance/fintrack/com.sachin.fintrack?page=details&id=com.sachin.fintrack";
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
-                intent.putExtra(Intent.EXTRA_TEXT, "Hey, check out this amazing app: " + shareLink);
-                startActivity(Intent.createChooser(intent, "Share via"));
+                intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_message, shareLink));
+                startActivity(Intent.createChooser(intent, getString(R.string.share_app)));
             }
         });
 
@@ -153,9 +153,9 @@ public class ProfileFragment extends Fragment {
 
         binding.relLogout.setOnClickListener(v -> {
             new androidx.appcompat.app.AlertDialog.Builder(requireContext())
-                    .setTitle("Logout")
-                    .setMessage("Are you sure you want to logout?")
-                    .setPositiveButton("Yes", (dialog, which) -> {
+                    .setTitle(getString(R.string.logout))
+                    .setMessage(getString(R.string.logout_confirmation))
+                    .setPositiveButton(getString(R.string.yes), (dialog, which) -> {
 
                         FirebaseAuth.getInstance().signOut();
 
@@ -173,7 +173,7 @@ public class ProfileFragment extends Fragment {
                         });
 
                     })
-                    .setNegativeButton("No", (dialog, which) -> dialog.dismiss())
+                    .setNegativeButton(getString(R.string.no), (dialog, which) -> dialog.dismiss())
                     .show();
         });
 
@@ -270,7 +270,7 @@ public class ProfileFragment extends Fragment {
                                 firestore.collection("users").document(FirebaseAuth.getInstance().getUid())
                                         .update("profile",uri.toString());
 
-                                Toast.makeText(getContext(), "Profile update",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getContext(), getString(R.string.profile_updated),Toast.LENGTH_SHORT).show();
                                 progressDialog.dismiss();
                             }
                         });

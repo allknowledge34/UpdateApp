@@ -1,17 +1,108 @@
 <resources>
     <string name="app_name">UpdateApp</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="default_web_client_id">610596201338-8jkqtv5msdu5q7mi0qs0gho2tu8a8esv.apps.googleusercontent.com</string>
+    
+    <!-- Language Selection -->
     <string name="language">Language</string>
-    <string name="language_english">English</string>
-    <string name="language_chinese">中文</string>
-    <string name="language_hindi">हिन्दी</string>
-    <string name="language_spanish">Español</string>
-    <string name="language_arabic">العربية</string>
-    <string name="language_french">Français</string>
-    <string name="language_bengali">বাংলা</string>
-    <string name="language_portuguese">Português</string>
-    <string name="language_russian">Русский</string>
-    <string name="language_urdu">اردو</string>
+    <string name="select_language">Select Language</string>
+    
+    <!-- Language Names -->
+    <string name="lang_english">English</string>
+    <string name="lang_chinese">中文 (Chinese)</string>
+    <string name="lang_hindi">हिन्दी (Hindi)</string>
+    <string name="lang_spanish">Español (Spanish)</string>
+    <string name="lang_arabic">العربية (Arabic)</string>
+    <string name="lang_french">Français (French)</string>
+    <string name="lang_bengali">বাংলা (Bengali)</string>
+    <string name="lang_portuguese">Português (Portuguese)</string>
+    <string name="lang_russian">Русский (Russian)</string>
+    <string name="lang_urdu">اردو (Urdu)</string>
+    
+    <!-- Login Screen -->
+    <string name="login_to_account">Login to your\nAccount</string>
+    <string name="your_email">Your Email</string>
+    <string name="enter_email">Enter your email</string>
+    <string name="your_password">Your Password</string>
+    <string name="enter_password">Enter your password</string>
+    <string name="forget_password">Forget password</string>
+    <string name="log_in">Log in</string>
+    <string name="dont_have_account">Don\'t have an account? SignUp</string>
+    
+    <!-- Sign Up Screen -->
+    <string name="create_account">Create\naccount</string>
+    <string name="your_name">Your Name</string>
+    <string name="enter_name">Enter your name</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="enter_mobile">Enter the Mobile Number</string>
+    <string name="sign_up">Sign up</string>
+    <string name="already_have_account">Already have an account? Login</string>
+    
+    <!-- Profile Screen -->
+    <string name="profile">Profile</string>
+    <string name="unknown">unknown</string>
+    <string name="sample_email">abc@gmail.com</string>
+    <string name="general">General</string>
+    <string name="check_new">Check what\'s new</string>
+    <string name="rate_us">Rate Us</string>
+    <string name="help">Help</string>
+    <string name="share_app">Share App</string>
+    <string name="terms_conditions">Terms and Conditions</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="help_support">Help and Support</string>
+    <string name="contact_us">Contact us</string>
+    <string name="general_inquiry">General Inquiry</string>
+    <string name="logout">Logout</string>
+    <string name="version">Version</string>
+    
+    <!-- Common UI Elements -->
+    <string name="done">Done</string>
+    <string name="back">Back</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    
+    <!-- Messages -->
+    <string name="language_changed">Language changed successfully</string>
+    <string name="restart_required">Please restart the app to apply language changes</string>
+    <string name="logout_confirmation">Are you sure you want to logout?</string>
+    <string name="share_message">Hey, check out this amazing app: %s</string>
+    
+    <!-- Progress Messages -->
+    <string name="logging_in">Logging In</string>
+    <string name="please_wait">Please wait...</string>
+    <string name="creating_account">Creating Your Account</string>
+    <string name="account_creating">Your Account Is Creating</string>
+    <string name="profile_uploading">Profile Uploading</string>
+    <string name="uploading_profile">We Are Uploading Your Profile</string>
+    <string name="verifying_otp">Verifying OTP</string>
+    <string name="otp_verification">OTP Verification</string>
+    <string name="verification_code_sent">We have sent a verification code to</string>
+    <string name="verify">Verify</string>
+    <string name="enter_valid_otp">Please enter valid OTP</string>
+    <string name="otp_verification_failed">OTP verification failed</string>
+    <string name="otp_error">OTP Error: %1$s</string>
+    <string name="auth_error_user_not_found">Authentication error: user not found after sign-in</string>
+    
+    <!-- Error Messages -->
+    <string name="enter_valid_email">Enter Your Valid Email</string>
+    <string name="enter_strong_password">Enter Strong Password</string>
+    <string name="enter_good_name">Enter Your Good Name</string>
+    <string name="enter_valid_mobile">Enter Your Valid Mobile Number</string>
+    <string name="permission_denied">Permission Denied!</string>
+    <string name="profile_updated">Profile update</string>
+    <string name="coming_soon">Coming Soon</string>
+    
+    <!-- Additional strings -->
+    <string name="firebase_auth_failed">Firebase Authentication Failed</string>
+    <string name="google_signin_error">Google Sign-In Error: %1$d\n%2$s</string>
+    <string name="google_login_message">Click on Google button to login with Google</string>
+    <string name="error_message">Error: %1$s</string>
+    <string name="generic_error">An unexpected error occurred</string>
+    <string name="email_already_registered">This email is already registered. Please login.</string>
+    <string name="back_to">Back to</string>
+    <string name="forget_password_button">FORGET PASSWORD</string>
+    <string name="check_email">Please Check Your Email</string>
 </resources>

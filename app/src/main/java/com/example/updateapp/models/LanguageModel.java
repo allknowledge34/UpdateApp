@@ -1,22 +1,16 @@
 package com.example.updateapp.models;
 
 public class LanguageModel {
-    private String languageCode;
     private String languageName;
+    private String languageCode;
+    private String countryCode;
     private boolean isSelected;
 
-    public LanguageModel(String languageCode, String languageName, boolean isSelected) {
-        this.languageCode = languageCode;
+    public LanguageModel(String languageName, String languageCode, String countryCode) {
         this.languageName = languageName;
-        this.isSelected = isSelected;
-    }
-
-    public String getLanguageCode() {
-        return languageCode;
-    }
-
-    public void setLanguageCode(String languageCode) {
         this.languageCode = languageCode;
+        this.countryCode = countryCode;
+        this.isSelected = false;
     }
 
     public String getLanguageName() {
@@ -27,6 +21,22 @@ public class LanguageModel {
         this.languageName = languageName;
     }
 
+    public String getLanguageCode() {
+        return languageCode;
+    }
+
+    public void setLanguageCode(String languageCode) {
+        this.languageCode = languageCode;
+    }
+
+    public String getCountryCode() {
+        return countryCode;
+    }
+
+    public void setCountryCode(String countryCode) {
+        this.countryCode = countryCode;
+    }
+
     public boolean isSelected() {
         return isSelected;
     }
@@ -35,4 +45,3 @@ public class LanguageModel {
         isSelected = selected;
     }
 }
-

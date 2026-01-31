@@ -1,17 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">UpdateApp</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment">你好空白片段</string>
     <string name="default_web_client_id">610596201338-8jkqtv5msdu5q7mi0qs0gho2tu8a8esv.apps.googleusercontent.com</string>
+    
+    <!-- Language Selection -->
     <string name="language">语言</string>
-    <string name="language_english">英语</string>
-    <string name="language_chinese">中文</string>
-    <string name="language_hindi">印地语</string>
-    <string name="language_spanish">西班牙语</string>
-    <string name="language_arabic">阿拉伯语</string>
-    <string name="language_french">法语</string>
-    <string name="language_bengali">孟加拉语</string>
-    <string name="language_portuguese">葡萄牙语</string>
-    <string name="language_russian">俄语</string>
-    <string name="language_urdu">乌尔都语</string>
+    <string name="select_language">选择语言</string>
+    
+    <!-- Language Names -->
+    <string name="lang_english">English</string>
+    <string name="lang_chinese">中文 (Chinese)</string>
+    <string name="lang_hindi">हिन्दी (Hindi)</string>
+    <string name="lang_spanish">Español (Spanish)</string>
+    <string name="lang_arabic">العربية (Arabic)</string>
+    <string name="lang_french">Français (French)</string>
+    <string name="lang_bengali">বাংলা (Bengali)</string>
+    <string name="lang_portuguese">Português (Portuguese)</string>
+    <string name="lang_russian">Русский (Russian)</string>
+    <string name="lang_urdu">اردو (Urdu)</string>
+    
+    <!-- Login Screen -->
+    <string name="login_to_account">登录到您的\n账户</string>
+    <string name="your_email">您的邮箱</string>
+    <string name="enter_email">输入您的邮箱</string>
+    <string name="your_password">您的密码</string>
+    <string name="enter_password">输入您的密码</string>
+    <string name="forget_password">忘记密码</string>
+    <string name="log_in">登录</string>
+    <string name="dont_have_account">没有账户？注册</string>
+    
+    <!-- Sign Up Screen -->
+    <string name="create_account">创建\n账户</string>
+    <string name="your_name">您的姓名</string>
+    <string name="enter_name">输入您的姓名</string>
+    <string name="mobile_number">手机号码</string>
+    <string name="enter_mobile">输入手机号码</string>
+    <string name="sign_up">注册</string>
+    <string name="already_have_account">已有账户？登录</string>
+    
+    <!-- Profile Screen -->
+    <string name="profile">个人资料</string>
+    <string name="unknown">未知</string>
+    <string name="sample_email">abc@gmail.com</string>
+    <string name="general">常规</string>
+    <string name="check_new">查看新功能</string>
+    <string name="rate_us">给我们评分</string>
+    <string name="help">帮助</string>
+    <string name="share_app">分享应用</string>
+    <string name="terms_conditions">条款和条件</string>
+    <string name="privacy_policy">隐私政策</string>
+    <string name="help_support">帮助和支持</string>
+    <string name="contact_us">联系我们</string>
+    <string name="general_inquiry">一般咨询</string>
+    <string name="logout">退出登录</string>
+    <string name="version">版本</string>
+    
+    <!-- Common UI Elements -->
+    <string name="done">完成</string>
+    <string name="back">返回</string>
+    <string name="save">保存</string>
+    <string name="cancel">取消</string>
+    <string name="ok">确定</string>
+    <string name="yes">是</string>
+    <string name="no">否</string>
+    
+    <!-- Messages -->
+    <string name="language_changed">语言更改成功</string>
+    <string name="restart_required">请重启应用以应用语言更改</string>
+    <string name="logout_confirmation">您确定要退出登录吗？</string>
+    <string name="share_message">嘿，看看这个很棒的应用：%s</string>
+    
+    <!-- Progress Messages -->
+    <string name="logging_in">正在登录</string>
+    <string name="please_wait">请稍候...</string>
+    <string name="creating_account">正在创建您的账户</string>
+    <string name="account_creating">正在创建您的账户</string>
+    <string name="profile_uploading">正在上传头像</string>
+    <string name="uploading_profile">我们正在上传您的头像</string>
+    <string name="verifying_otp">正在验证验证码</string>
+    
+    <!-- Error Messages -->
+    <string name="enter_valid_email">请输入有效的邮箱</string>
+    <string name="enter_strong_password">请输入强密码</string>
+    <string name="enter_good_name">请输入您的姓名</string>
+    <string name="enter_valid_mobile">请输入有效的手机号码</string>
+    <string name="permission_denied">权限被拒绝！</string>
+    <string name="profile_updated">头像已更新</string>
+    <string name="coming_soon">即将推出</string>
+    
+    <!-- Additional strings -->
+    <string name="firebase_auth_failed">Firebase身份验证失败</string>
+    <string name="google_signin_error">Google登录错误: %1$d\n%2$s</string>
+    <string name="google_login_message">点击Google按钮使用Google登录</string>
+    <string name="error_message">错误: %1$s</string>
+    <string name="generic_error">发生了意外错误</string>
+    <string name="email_already_registered">此邮箱已注册。请登录。</string>
+    <string name="back_to">返回到</string>
+    <string name="forget_password_button">忘记密码</string>
+    <string name="check_email">请检查您的邮箱</string>
+    <string name="otp_verification">验证码验证</string>
+    <string name="verification_code_sent">我们已发送验证码到</string>
+    <string name="verify">验证</string>
+    <string name="enter_valid_otp">请输入有效的验证码</string>
+    <string name="otp_verification_failed">验证码验证失败</string>
+    <string name="otp_error">验证码错误: %1$s</string>
+    <string name="auth_error_user_not_found">身份验证错误：登录后未找到用户</string>
 </resources>
-

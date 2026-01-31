@@ -39,7 +39,7 @@
             android:layout_centerVertical="true"
             android:layout_toEndOf="@+id/img_back"
             android:layout_toStartOf="@+id/img_done"
-            android:text="Language"
+            android:text="@string/language"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="21sp"

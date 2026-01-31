@@ -1,17 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">UpdateApp</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="default_web_client_id">610596201338-8jkqtv5msdu5q7mi0qs0gho2tu8a8esv.apps.googleusercontent.com</string>
+    <string name="hello_blank_fragment">مرحبا جزء فارغ</string>
+    
+    <!-- Language Selection -->
     <string name="language">اللغة</string>
-    <string name="language_english">الإنجليزية</string>
-    <string name="language_chinese">الصينية</string>
-    <string name="language_hindi">الهندية</string>
-    <string name="language_spanish">الإسبانية</string>
-    <string name="language_arabic">العربية</string>
-    <string name="language_french">الفرنسية</string>
-    <string name="language_bengali">البنغالية</string>
-    <string name="language_portuguese">البرتغالية</string>
-    <string name="language_russian">الروسية</string>
-    <string name="language_urdu">الأردية</string>
+    <string name="select_language">اختر اللغة</string>
+    
+    <!-- Language Names -->
+    <string name="lang_english">English</string>
+    <string name="lang_chinese">中文 (Chinese)</string>
+    <string name="lang_hindi">हिन्दी (Hindi)</string>
+    <string name="lang_spanish">Español (Spanish)</string>
+    <string name="lang_arabic">العربية (Arabic)</string>
+    <string name="lang_french">Français (French)</string>
+    <string name="lang_bengali">বাংলা (Bengali)</string>
+    <string name="lang_portuguese">Português (Portuguese)</string>
+    <string name="lang_russian">Русский (Russian)</string>
+    <string name="lang_urdu">اردو (Urdu)</string>
+    
+    <!-- Login Screen -->
+    <string name="login_to_account">تسجيل الدخول إلى\nحسابك</string>
+    <string name="your_email">بريدك الإلكتروني</string>
+    <string name="enter_email">أدخل بريدك الإلكتروني</string>
+    <string name="your_password">كلمة المرور</string>
+    <string name="enter_password">أدخل كلمة المرور</string>
+    <string name="forget_password">نسيت كلمة المرور</string>
+    <string name="log_in">تسجيل الدخول</string>
+    <string name="dont_have_account">ليس لديك حساب؟ سجل</string>
+    
+    <!-- Sign Up Screen -->
+    <string name="create_account">إنشاء\nحساب</string>
+    <string name="your_name">اسمك</string>
+    <string name="enter_name">أدخل اسمك</string>
+    <string name="mobile_number">رقم الهاتف المحمول</string>
+    <string name="enter_mobile">أدخل رقم الهاتف المحمول</string>
+    <string name="sign_up">التسجيل</string>
+    <string name="already_have_account">لديك حساب بالفعل؟ تسجيل الدخول</string>
+    
+    <!-- Profile Screen -->
+    <string name="profile">الملف الشخصي</string>
+    <string name="unknown">غير معروف</string>
+    <string name="sample_email">abc@gmail.com</string>
+    <string name="general">عام</string>
+    <string name="check_new">تحقق من الجديد</string>
+    <string name="rate_us">قيمنا</string>
+    <string name="help">مساعدة</string>
+    <string name="share_app">مشاركة التطبيق</string>
+    <string name="terms_conditions">الشروط والأحكام</string>
+    <string name="privacy_policy">سياسة الخصوصية</string>
+    <string name="help_support">المساعدة والدعم</string>
+    <string name="contact_us">اتصل بنا</string>
+    <string name="general_inquiry">استفسار عام</string>
+    <string name="logout">تسجيل الخروج</string>
+    <string name="version">الإصدار</string>
+    
+    <!-- Common UI Elements -->
+    <string name="done">تم</string>
+    <string name="back">رجوع</string>
+    <string name="save">حفظ</string>
+    <string name="cancel">إلغاء</string>
+    <string name="ok">موافق</string>
+    <string name="yes">نعم</string>
+    <string name="no">لا</string>
+    
+    <!-- Messages -->
+    <string name="language_changed">تم تغيير اللغة بنجاح</string>
+    <string name="restart_required">يرجى إعادة تشغيل التطبيق لتطبيق تغييرات اللغة</string>
+    <string name="logout_confirmation">هل أنت متأكد من أنك تريد تسجيل الخروج؟</string>
+    <string name="share_message">مرحبا، تحقق من هذا التطبيق الرائع: %s</string>
+    
+    <!-- Progress Messages -->
+    <string name="logging_in">تسجيل الدخول</string>
+    <string name="please_wait">يرجى الانتظار...</string>
+    <string name="creating_account">إنشاء حسابك</string>
+    <string name="account_creating">يتم إنشاء حسابك</string>
+    <string name="profile_uploading">رفع الملف الشخصي</string>
+    <string name="uploading_profile">نحن نرفع ملفك الشخصي</string>
+    <string name="verifying_otp">التحقق من OTP</string>
+    <string name="otp_verification">التحقق من OTP</string>
+    <string name="verification_code_sent">لقد أرسلنا رمز التحقق إلى</string>
+    <string name="verify">تحقق</string>
+    <string name="enter_valid_otp">يرجى إدخال OTP صحيح</string>
+    <string name="otp_verification_failed">فشل التحقق من OTP</string>
+    <string name="otp_error">خطأ OTP: %1$s</string>
+    <string name="auth_error_user_not_found">خطأ في المصادقة: لم يتم العثور على المستخدم بعد تسجيل الدخول</string>
+    
+    <!-- Error Messages -->
+    <string name="enter_valid_email">أدخل بريدك الإلكتروني الصحيح</string>
+    <string name="enter_strong_password">أدخل كلمة مرور قوية</string>
+    <string name="enter_good_name">أدخل اسمك الجيد</string>
+    <string name="enter_valid_mobile">أدخل رقم هاتفك المحمول الصحيح</string>
+    <string name="permission_denied">تم رفض الإذن!</string>
+    <string name="profile_updated">تحديث الملف الشخصي</string>
+    <string name="coming_soon">قريباً</string>
+    
+    <!-- Additional strings -->
+    <string name="default_web_client_id">610596201338-8jkqtv5msdu5q7mi0qs0gho2tu8a8esv.apps.googleusercontent.com</string>
+    <string name="firebase_auth_failed">فشل مصادقة Firebase</string>
+    <string name="google_signin_error">خطأ تسجيل الدخول بـ Google: %1$d\n%2$s</string>
+    <string name="google_login_message">انقر على زر Google لتسجيل الدخول بـ Google</string>
+    <string name="error_message">خطأ: %1$s</string>
+    <string name="generic_error">حدث خطأ غير متوقع</string>
+    <string name="email_already_registered">هذا البريد الإلكتروني مسجل بالفعل. يرجى تسجيل الدخول.</string>
+    <string name="back_to">العودة إلى</string>
+    <string name="forget_password_button">نسيت كلمة المرور</string>
+    <string name="check_email">يرجى التحقق من بريدك الإلكتروني</string>
 </resources>
-

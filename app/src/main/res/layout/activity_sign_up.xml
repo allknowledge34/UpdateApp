@@ -41,7 +41,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
-                    android:text="Create\naccount"
+                    android:text="@string/create_account"
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     android:textSize="33dp"
@@ -53,7 +53,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Your Name"
+                android:text="@string/your_name"
                 android:textSize="18sp"
                 android:textColor="#2f3363"
                 android:textStyle="bold"
@@ -67,7 +67,7 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginTop="8dp"
-                android:hint="Enter your name"
+                android:hint="@string/enter_name"
                 android:padding="8dp"
                 android:textSize="16sp"
                 android:textColor="#A2A4b5"
@@ -79,7 +79,7 @@
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Your Email"
+                android:text="@string/your_email"
                 android:textSize="18sp"
                 android:textColor="#2f3363"
                 android:textStyle="bold"
@@ -93,7 +93,7 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginTop="8dp"
-                android:hint="Enter your email"
+                android:hint="@string/enter_email"
                 android:padding="8dp"
                 android:textSize="16sp"
                 android:textColor="#A2A4b5"
@@ -104,7 +104,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Mobile Number"
+                android:text="@string/mobile_number"
                 android:textSize="18sp"
                 android:textColor="#2f3363"
                 android:textStyle="bold"
@@ -118,7 +118,7 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginTop="8dp"
-                android:hint="Enter the Mobile Number"
+                android:hint="@string/enter_mobile"
                 android:padding="8dp"
                 android:textSize="16sp"
                 android:textColor="#A2A4b5"
@@ -129,7 +129,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Your Password"
+                android:text="@string/your_password"
                 android:textSize="18sp"
                 android:textColor="#2f3363"
                 android:textStyle="bold"
@@ -143,7 +143,7 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginTop="8dp"
-                android:hint="Enter your password"
+                android:hint="@string/enter_password"
                 android:padding="8dp"
                 android:textSize="16sp"
                 android:textColor="#A2A4b5"
@@ -178,7 +178,7 @@
                 android:id="@+id/btnSignUp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sign up"
+                android:text="@string/sign_up"
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginTop="32dp"
@@ -202,7 +202,7 @@
                 android:layout_height="50dp"
                 android:layout_marginBottom="32dp"
                 android:background="@drawable/purple_button_bg_1"
-                android:text="Already have an account? Login" />
+                android:text="@string/already_have_account" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

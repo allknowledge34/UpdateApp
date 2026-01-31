@@ -14,6 +14,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.updateapp.Helpers.LocaleHelper;
 import com.example.updateapp.R;
 import com.example.updateapp.databinding.ActivityNewUpdateBinding;
+import com.example.updateapp.utils.LocaleHelper;
 
 public class NewUpdateActivity extends AppCompatActivity {
 
@@ -38,6 +39,6 @@ public class NewUpdateActivity extends AppCompatActivity {
 
     @Override
     protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(LocaleHelper.attachBaseContext(newBase));
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
     }
 }

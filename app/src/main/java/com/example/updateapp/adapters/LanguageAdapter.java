@@ -1,5 +1,6 @@
 package com.example.updateapp.adapters;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,36 +15,44 @@ import com.example.updateapp.models.LanguageModel;
 
 import java.util.List;
 
-public class LanguageAdapter extends RecyclerView.Adapter<LanguageAdapter.ViewHolder> {
+public class LanguageAdapter extends RecyclerView.Adapter<LanguageAdapter.LanguageViewHolder> {
 
+    private Context context;
     private List<LanguageModel> languageList;
-    private OnLanguageClickListener listener;
+    private OnLanguageSelectedListener listener;
 
-    public interface OnLanguageClickListener {
-        void onLanguageClick(LanguageModel language);
+    public interface OnLanguageSelectedListener {
+        void onLanguageSelected(LanguageModel language, int position);
     }
 
-    public LanguageAdapter(List<LanguageModel> languageList, OnLanguageClickListener listener) {
+    public LanguageAdapter(Context context, List<LanguageModel> languageList, OnLanguageSelectedListener listener) {
+        this.context = context;
         this.languageList = languageList;
         this.listener = listener;
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_language, parent, false);
-        return new ViewHolder(view);
+    public LanguageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.item_language, parent, false);
+        return new LanguageViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull LanguageViewHolder holder, int position) {
         LanguageModel language = languageList.get(position);
-        holder.languageName.setText(language.getLanguageName());
-        holder.selectedIcon.setVisibility(language.isSelected() ? View.VISIBLE : View.GONE);
+        
+        holder.txtLanguageName.setText(language.getLanguageName());
+        
+        if (language.isSelected()) {
+            holder.imgSelected.setVisibility(View.VISIBLE);
+        } else {
+            holder.imgSelected.setVisibility(View.GONE);
+        }
 
         holder.itemView.setOnClickListener(v -> {
             if (listener != null) {
-                listener.onLanguageClick(language);
+                listener.onLanguageSelected(language, position);
             }
         });
     }
@@ -53,22 +62,21 @@ public class LanguageAdapter extends RecyclerView.Adapter<LanguageAdapter.ViewHo
         return languageList.size();
     }
 
-    public void updateSelection(String selectedLanguageCode) {
-        for (LanguageModel language : languageList) {
-            language.setSelected(language.getLanguageCode().equals(selectedLanguageCode));
+    public void updateSelection(int selectedPosition) {
+        for (int i = 0; i < languageList.size(); i++) {
+            languageList.get(i).setSelected(i == selectedPosition);
         }
         notifyDataSetChanged();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView languageName;
-        ImageView selectedIcon;
+    public static class LanguageViewHolder extends RecyclerView.ViewHolder {
+        TextView txtLanguageName;
+        ImageView imgSelected;
 
-        public ViewHolder(@NonNull View itemView) {
+        public LanguageViewHolder(@NonNull View itemView) {
             super(itemView);
-            languageName = itemView.findViewById(R.id.txt_language_name);
-            selectedIcon = itemView.findViewById(R.id.img_selected);
+            txtLanguageName = itemView.findViewById(R.id.txt_language_name);
+            imgSelected = itemView.findViewById(R.id.img_selected);
         }
     }
 }
-

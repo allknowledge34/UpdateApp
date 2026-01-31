@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import com.example.updateapp.Helpers.LocaleHelper;
 import com.example.updateapp.databinding.ActivityMainBinding;
+import com.example.updateapp.utils.LocaleHelper;
 import com.example.updateapp.views.fragments.ChatbotFragment;
 import com.example.updateapp.views.fragments.ProfileFragment;
 
@@ -58,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(LocaleHelper.attachBaseContext(newBase));
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
     }
 
 }

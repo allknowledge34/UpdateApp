@@ -1,17 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">UpdateApp</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="default_web_client_id">610596201338-8jkqtv5msdu5q7mi0qs0gho2tu8a8esv.apps.googleusercontent.com</string>
+    <string name="hello_blank_fragment">Bonjour fragment vide</string>
+    
+    <!-- Language Selection -->
     <string name="language">Langue</string>
-    <string name="language_english">Anglais</string>
-    <string name="language_chinese">Chinois</string>
-    <string name="language_hindi">Hindi</string>
-    <string name="language_spanish">Espagnol</string>
-    <string name="language_arabic">Arabe</string>
-    <string name="language_french">Français</string>
-    <string name="language_bengali">Bengali</string>
-    <string name="language_portuguese">Portugais</string>
-    <string name="language_russian">Russe</string>
-    <string name="language_urdu">Ourdou</string>
+    <string name="select_language">Sélectionner la langue</string>
+    
+    <!-- Language Names -->
+    <string name="lang_english">English</string>
+    <string name="lang_chinese">中文 (Chinese)</string>
+    <string name="lang_hindi">हिन्दी (Hindi)</string>
+    <string name="lang_spanish">Español (Spanish)</string>
+    <string name="lang_arabic">العربية (Arabic)</string>
+    <string name="lang_french">Français (French)</string>
+    <string name="lang_bengali">বাংলা (Bengali)</string>
+    <string name="lang_portuguese">Português (Portuguese)</string>
+    <string name="lang_russian">Русский (Russian)</string>
+    <string name="lang_urdu">اردو (Urdu)</string>
+    
+    <!-- Login Screen -->
+    <string name="login_to_account">Connectez-vous à votre\nCompte</string>
+    <string name="your_email">Votre Email</string>
+    <string name="enter_email">Entrez votre email</string>
+    <string name="your_password">Votre Mot de Passe</string>
+    <string name="enter_password">Entrez votre mot de passe</string>
+    <string name="forget_password">Mot de passe oublié</string>
+    <string name="log_in">Se connecter</string>
+    <string name="dont_have_account">Pas de compte? S\'inscrire</string>
+    
+    <!-- Sign Up Screen -->
+    <string name="create_account">Créer un\ncompte</string>
+    <string name="your_name">Votre Nom</string>
+    <string name="enter_name">Entrez votre nom</string>
+    <string name="mobile_number">Numéro de Mobile</string>
+    <string name="enter_mobile">Entrez le numéro de mobile</string>
+    <string name="sign_up">S\'inscrire</string>
+    <string name="already_have_account">Déjà un compte? Se connecter</string>
+    
+    <!-- Profile Screen -->
+    <string name="profile">Profil</string>
+    <string name="unknown">inconnu</string>
+    <string name="sample_email">abc@gmail.com</string>
+    <string name="general">Général</string>
+    <string name="check_new">Voir les nouveautés</string>
+    <string name="rate_us">Nous Noter</string>
+    <string name="help">Aide</string>
+    <string name="share_app">Partager l\'App</string>
+    <string name="terms_conditions">Termes et Conditions</string>
+    <string name="privacy_policy">Politique de Confidentialité</string>
+    <string name="help_support">Aide et Support</string>
+    <string name="contact_us">Nous Contacter</string>
+    <string name="general_inquiry">Demande Générale</string>
+    <string name="logout">Se Déconnecter</string>
+    <string name="version">Version</string>
+    
+    <!-- Common UI Elements -->
+    <string name="done">Terminé</string>
+    <string name="back">Retour</string>
+    <string name="save">Enregistrer</string>
+    <string name="cancel">Annuler</string>
+    <string name="ok">OK</string>
+    <string name="yes">Oui</string>
+    <string name="no">Non</string>
+    
+    <!-- Messages -->
+    <string name="language_changed">Langue changée avec succès</string>
+    <string name="restart_required">Veuillez redémarrer l\'application pour appliquer les changements de langue</string>
+    <string name="logout_confirmation">Êtes-vous sûr de vouloir vous déconnecter?</string>
+    <string name="share_message">Salut, regarde cette application incroyable: %s</string>
+    
+    <!-- Progress Messages -->
+    <string name="logging_in">Connexion</string>
+    <string name="please_wait">Veuillez patienter...</string>
+    <string name="creating_account">Création de Votre Compte</string>
+    <string name="account_creating">Votre Compte Est En Cours de Création</string>
+    <string name="profile_uploading">Téléchargement du Profil</string>
+    <string name="uploading_profile">Nous Téléchargeons Votre Profil</string>
+    <string name="verifying_otp">Vérification OTP</string>
+    <string name="otp_verification">Vérification OTP</string>
+    <string name="verification_code_sent">Nous avons envoyé un code de vérification à</string>
+    <string name="verify">Vérifier</string>
+    <string name="enter_valid_otp">Veuillez entrer un OTP valide</string>
+    <string name="otp_verification_failed">Échec de la vérification OTP</string>
+    <string name="otp_error">Erreur OTP: %1$s</string>
+    <string name="auth_error_user_not_found">Erreur d\'authentification: utilisateur non trouvé après la connexion</string>
+    
+    <!-- Error Messages -->
+    <string name="enter_valid_email">Entrez Votre Email Valide</string>
+    <string name="enter_strong_password">Entrez un Mot de Passe Fort</string>
+    <string name="enter_good_name">Entrez Votre Bon Nom</string>
+    <string name="enter_valid_mobile">Entrez Votre Numéro de Mobile Valide</string>
+    <string name="permission_denied">Permission Refusée!</string>
+    <string name="profile_updated">Profil mis à jour</string>
+    <string name="coming_soon">Bientôt disponible</string>
+    
+    <!-- Additional strings -->
+    <string name="default_web_client_id">610596201338-8jkqtv5msdu5q7mi0qs0gho2tu8a8esv.apps.googleusercontent.com</string>
+    <string name="firebase_auth_failed">Échec de l\'Authentification Firebase</string>
+    <string name="google_signin_error">Erreur de Connexion Google: %1$d\n%2$s</string>
+    <string name="google_login_message">Cliquez sur le bouton Google pour vous connecter avec Google</string>
+    <string name="error_message">Erreur: %1$s</string>
+    <string name="generic_error">Une erreur inattendue s\'est produite</string>
+    <string name="email_already_registered">Cet email est déjà enregistré. Veuillez vous connecter.</string>
+    <string name="back_to">Retour à</string>
+    <string name="forget_password_button">MOT DE PASSE OUBLIÉ</string>
+    <string name="check_email">Veuillez Vérifier Votre Email</string>
 </resources>
-

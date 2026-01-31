@@ -1,17 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">UpdateApp</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="default_web_client_id">610596201338-8jkqtv5msdu5q7mi0qs0gho2tu8a8esv.apps.googleusercontent.com</string>
+    <string name="hello_blank_fragment">Привет пустой фрагмент</string>
+    
+    <!-- Language Selection -->
     <string name="language">Язык</string>
-    <string name="language_english">Английский</string>
-    <string name="language_chinese">Китайский</string>
-    <string name="language_hindi">Хинди</string>
-    <string name="language_spanish">Испанский</string>
-    <string name="language_arabic">Арабский</string>
-    <string name="language_french">Французский</string>
-    <string name="language_bengali">Бенгальский</string>
-    <string name="language_portuguese">Португальский</string>
-    <string name="language_russian">Русский</string>
-    <string name="language_urdu">Урду</string>
+    <string name="select_language">Выберите язык</string>
+    
+    <!-- Language Names -->
+    <string name="lang_english">English</string>
+    <string name="lang_chinese">中文 (Chinese)</string>
+    <string name="lang_hindi">हिन्दी (Hindi)</string>
+    <string name="lang_spanish">Español (Spanish)</string>
+    <string name="lang_arabic">العربية (Arabic)</string>
+    <string name="lang_french">Français (French)</string>
+    <string name="lang_bengali">বাংলা (Bengali)</string>
+    <string name="lang_portuguese">Português (Portuguese)</string>
+    <string name="lang_russian">Русский (Russian)</string>
+    <string name="lang_urdu">اردو (Urdu)</string>
+    
+    <!-- Login Screen -->
+    <string name="login_to_account">Войдите в свой\nАккаунт</string>
+    <string name="your_email">Ваш Email</string>
+    <string name="enter_email">Введите ваш email</string>
+    <string name="your_password">Ваш Пароль</string>
+    <string name="enter_password">Введите ваш пароль</string>
+    <string name="forget_password">Забыли пароль</string>
+    <string name="log_in">Войти</string>
+    <string name="dont_have_account">Нет аккаунта? Зарегистрироваться</string>
+    
+    <!-- Sign Up Screen -->
+    <string name="create_account">Создать\nаккаунт</string>
+    <string name="your_name">Ваше Имя</string>
+    <string name="enter_name">Введите ваше имя</string>
+    <string name="mobile_number">Номер Мобильного</string>
+    <string name="enter_mobile">Введите номер мобильного</string>
+    <string name="sign_up">Зарегистрироваться</string>
+    <string name="already_have_account">Уже есть аккаунт? Войти</string>
+    
+    <!-- Profile Screen -->
+    <string name="profile">Профиль</string>
+    <string name="unknown">неизвестно</string>
+    <string name="sample_email">abc@gmail.com</string>
+    <string name="general">Общие</string>
+    <string name="check_new">Посмотреть что нового</string>
+    <string name="rate_us">Оценить Нас</string>
+    <string name="help">Помощь</string>
+    <string name="share_app">Поделиться Приложением</string>
+    <string name="terms_conditions">Условия и Положения</string>
+    <string name="privacy_policy">Политика Конфиденциальности</string>
+    <string name="help_support">Помощь и Поддержка</string>
+    <string name="contact_us">Связаться с Нами</string>
+    <string name="general_inquiry">Общий Запрос</string>
+    <string name="logout">Выйти</string>
+    <string name="version">Версия</string>
+    
+    <!-- Common UI Elements -->
+    <string name="done">Готово</string>
+    <string name="back">Назад</string>
+    <string name="save">Сохранить</string>
+    <string name="cancel">Отмена</string>
+    <string name="ok">ОК</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    
+    <!-- Messages -->
+    <string name="language_changed">Язык успешно изменен</string>
+    <string name="restart_required">Пожалуйста, перезапустите приложение для применения изменений языка</string>
+    <string name="logout_confirmation">Вы уверены, что хотите выйти?</string>
+    <string name="share_message">Привет, посмотри на это потрясающее приложение: %s</string>
+    
+    <!-- Progress Messages -->
+    <string name="logging_in">Вход в Систему</string>
+    <string name="please_wait">Пожалуйста, подождите...</string>
+    <string name="creating_account">Создание Вашего Аккаунта</string>
+    <string name="account_creating">Ваш Аккаунт Создается</string>
+    <string name="profile_uploading">Загрузка Профиля</string>
+    <string name="uploading_profile">Мы Загружаем Ваш Профиль</string>
+    <string name="verifying_otp">Проверка OTP</string>
+    <string name="otp_verification">Проверка OTP</string>
+    <string name="verification_code_sent">Мы отправили код подтверждения на</string>
+    <string name="verify">Проверить</string>
+    <string name="enter_valid_otp">Пожалуйста, введите действительный OTP</string>
+    <string name="otp_verification_failed">Проверка OTP не удалась</string>
+    <string name="otp_error">Ошибка OTP: %1$s</string>
+    <string name="auth_error_user_not_found">Ошибка аутентификации: пользователь не найден после входа</string>
+    
+    <!-- Error Messages -->
+    <string name="enter_valid_email">Введите Ваш Действительный Email</string>
+    <string name="enter_strong_password">Введите Надежный Пароль</string>
+    <string name="enter_good_name">Введите Ваше Хорошее Имя</string>
+    <string name="enter_valid_mobile">Введите Ваш Действительный Номер Мобильного</string>
+    <string name="permission_denied">Разрешение Отклонено!</string>
+    <string name="profile_updated">Профиль обновлен</string>
+    <string name="coming_soon">Скоро</string>
+    
+    <!-- Additional strings -->
+    <string name="default_web_client_id">610596201338-8jkqtv5msdu5q7mi0qs0gho2tu8a8esv.apps.googleusercontent.com</string>
+    <string name="firebase_auth_failed">Ошибка Аутентификации Firebase</string>
+    <string name="google_signin_error">Ошибка Входа Google: %1$d\n%2$s</string>
+    <string name="google_login_message">Нажмите кнопку Google для входа через Google</string>
+    <string name="error_message">Ошибка: %1$s</string>
+    <string name="generic_error">Произошла неожиданная ошибка</string>
+    <string name="email_already_registered">Этот email уже зарегистрирован. Пожалуйста, войдите.</string>
+    <string name="back_to">Вернуться к</string>
+    <string name="forget_password_button">ЗАБЫЛИ ПАРОЛЬ</string>
+    <string name="check_email">Пожалуйста, Проверьте Ваш Email</string>
 </resources>
-

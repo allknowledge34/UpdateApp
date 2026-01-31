@@ -17,6 +17,7 @@ import com.example.updateapp.Helpers.LocaleHelper;
 import com.example.updateapp.Helpers.SaveState;
 import com.example.updateapp.R;
 import com.example.updateapp.adapters.OnboardingAdapter;
+import com.example.updateapp.utils.LocaleHelper;
 
 public class OnboardingActivity extends AppCompatActivity {
 
@@ -118,6 +119,6 @@ public class OnboardingActivity extends AppCompatActivity {
 
     @Override
     protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(LocaleHelper.attachBaseContext(newBase));
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
     }
 }

@@ -41,7 +41,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
-                    android:text="Login to your\nAccount"
+                    android:text="@string/login_to_account"
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     android:textSize="33dp"
@@ -54,7 +54,7 @@
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Your Email"
+                android:text="@string/your_email"
                 android:textSize="18sp"
                 android:textColor="#2f3363"
                 android:textStyle="bold"
@@ -68,7 +68,7 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginTop="8dp"
-                android:hint="Enter your email"
+                android:hint="@string/enter_email"
                 android:padding="8dp"
                 android:textSize="16sp"
                 android:textColor="#A2A4b5"
@@ -79,7 +79,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Your Password"
+                android:text="@string/your_password"
                 android:textSize="18sp"
                 android:textColor="#2f3363"
                 android:textStyle="bold"
@@ -93,7 +93,7 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginTop="8dp"
-                android:hint="Enter your password"
+                android:hint="@string/enter_password"
                 android:padding="8dp"
                 android:textSize="16sp"
                 android:textColor="#A2A4b5"
@@ -105,7 +105,7 @@
                 android:id="@+id/forgotPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Forget password"
+                android:text="@string/forget_password"
                 android:textAlignment="textEnd"
                 android:layout_marginEnd="32dp"
                 android:layout_marginTop="8dp"/>
@@ -137,7 +137,7 @@
                 android:id="@+id/btnLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Log in"
+                android:text="@string/log_in"
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginTop="32dp"
@@ -161,7 +161,7 @@
                 android:layout_height="50dp"
                 android:layout_marginBottom="32dp"
                 android:background="@drawable/purple_button_bg_1"
-                android:text="Don't have an account? SignUp" />
+                android:text="@string/dont_have_account" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,6 +16,7 @@ import com.example.updateapp.Helpers.LocaleHelper;
 import com.example.updateapp.MainActivity;
 import com.example.updateapp.R;
 import com.example.updateapp.databinding.ActivityLoginBinding;
+import com.example.updateapp.utils.LocaleHelper;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -66,8 +67,8 @@ public class LoginActivity extends AppCompatActivity {
         gsc = GoogleSignIn.getClient(this, gso);
 
         progressDialog = new ProgressDialog(this);
-        progressDialog.setTitle("Logging In");
-        progressDialog.setMessage("Please wait...");
+        progressDialog.setTitle(getString(R.string.logging_in));
+        progressDialog.setMessage(getString(R.string.please_wait));
 
         binding.emailBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,9 +78,9 @@ public class LoginActivity extends AppCompatActivity {
                 String password = binding.edtPassword.getText().toString();
 
                 if (email.isEmpty()) {
-                    binding.edtEmail.setError("Enter Your Valid Email");
+                    binding.edtEmail.setError(getString(R.string.enter_valid_email));
                 } else if (password.isEmpty()) {
-                    binding.edtPassword.setError("Enter Strong Password");
+                    binding.edtPassword.setError(getString(R.string.enter_strong_password));
                 } else {
 
                     progressDialog.show();
@@ -111,9 +112,9 @@ public class LoginActivity extends AppCompatActivity {
                 String password = binding.edtPassword.getText().toString();
 
                 if (email.isEmpty()) {
-                    binding.edtEmail.setError("Enter Your Valid Email");
+                    binding.edtEmail.setError(getString(R.string.enter_valid_email));
                 } else if (password.isEmpty()) {
-                    binding.edtPassword.setError("Enter Strong Password");
+                    binding.edtPassword.setError(getString(R.string.enter_strong_password));
                 } else {
 
                     progressDialog.show();
@@ -209,7 +210,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                 } else {
                                     Toast.makeText(LoginActivity.this,
-                                            "Firebase Authentication Failed",
+                                            getString(R.string.firebase_auth_failed),
                                             Toast.LENGTH_SHORT).show();
                                 }
                             }
@@ -220,7 +221,7 @@ public class LoginActivity extends AppCompatActivity {
                 e.printStackTrace();
                 Toast.makeText(
                         this,
-                        "Google Sign-In Error: " + e.getStatusCode() + "\n" + e.getMessage(),
+                        getString(R.string.google_signin_error, e.getStatusCode(), e.getMessage()),
                         Toast.LENGTH_LONG
                 )                .show();
             }
@@ -229,6 +230,6 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(LocaleHelper.attachBaseContext(newBase));
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
     }
 }

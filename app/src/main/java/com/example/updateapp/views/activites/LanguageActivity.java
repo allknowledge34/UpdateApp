@@ -1,11 +1,10 @@
 package com.example.updateapp.views.activites;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.activity.OnBackPressedCallback;
@@ -16,16 +15,23 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.updateapp.Helpers.LocaleHelper;
-import com.example.updateapp.Helpers.SaveState;
+import com.example.updateapp.MainActivity;
 import com.example.updateapp.R;
 import com.example.updateapp.adapters.LanguageAdapter;
 import com.example.updateapp.models.LanguageModel;
+import com.example.updateapp.utils.LocaleHelper;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class LanguageActivity extends AppCompatActivity {
+public class LanguageActivity extends AppCompatActivity implements LanguageAdapter.OnLanguageSelectedListener {
+
+    private RecyclerView recyclerView;
+    private LanguageAdapter languageAdapter;
+    private List<LanguageModel> languageList;
+    private ImageView imgDone, imgBack;
+    private TextView txtTitle;
+    private int selectedPosition = 0;
 
     private RecyclerView recyclerView;
     private LanguageAdapter adapter;
@@ -43,100 +49,103 @@ public class LanguageActivity extends AppCompatActivity {
             return insets;
         });
 
-        // Initialize views
-        recyclerView = findViewById(R.id.rev_language);
-        TextView titleText = findViewById(R.id.txt_title);
-        ImageView doneButton = findViewById(R.id.img_done);
-
-        // Get current language
-        currentLanguageCode = LocaleHelper.getSavedLanguage(this);
-
-        // Setup RecyclerView
-        languageList = createLanguageList();
-        adapter = new LanguageAdapter(languageList, this::onLanguageSelected);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(adapter);
-
-        // Update selection UI
-        adapter.updateSelection(currentLanguageCode);
-
-        // Done button click handler
-        doneButton.setOnClickListener(v -> {
-            // Check if this is first launch
-            boolean isFirstLaunch = getIntent().getBooleanExtra("isFirstLaunch", false);
-            if (isFirstLaunch) {
-                // Mark language as selected and go to onboarding
-                SaveState languageState = new SaveState(this, "LANGUAGE_SELECTED");
-                languageState.setState(1);
-                Intent intent = new Intent(LanguageActivity.this, OnboardingActivity.class);
-                startActivity(intent);
-            }
-            finish();
-        });
-
-        // Set title
-        titleText.setText(getString(R.string.language));
-
-        // Handle back button behavior
-        boolean isFirstLaunch = getIntent().getBooleanExtra("isFirstLaunch", false);
-        OnBackPressedCallback callback = new OnBackPressedCallback(!isFirstLaunch) {
-            @Override
-            public void handleOnBackPressed() {
-                // For normal access, allow back navigation
-                finish();
-            }
-        };
-        getOnBackPressedDispatcher().addCallback(this, callback);
+        initViews();
+        setupLanguageList();
+        setupRecyclerView();
+        setupClickListeners();
     }
 
-    private List<LanguageModel> createLanguageList() {
-        List<LanguageModel> list = new ArrayList<>();
-        String[] languageCodes = {"en", "zh", "hi", "es", "ar", "fr", "bn", "pt", "ru", "ur"};
-        String[] languageNames = {
-            getString(R.string.language_english),
-            getString(R.string.language_chinese),
-            getString(R.string.language_hindi),
-            getString(R.string.language_spanish),
-            getString(R.string.language_arabic),
-            getString(R.string.language_french),
-            getString(R.string.language_bengali),
-            getString(R.string.language_portuguese),
-            getString(R.string.language_russian),
-            getString(R.string.language_urdu)
-        };
-
-        for (int i = 0; i < languageCodes.length; i++) {
-            boolean isSelected = languageCodes[i].equals(currentLanguageCode);
-            list.add(new LanguageModel(languageCodes[i], languageNames[i], isSelected));
-        }
-
-        return list;
-    }
-
-    private void onLanguageSelected(LanguageModel language) {
-        String selectedLanguageCode = language.getLanguageCode();
+    private void initViews() {
+        recyclerView = findViewById(R.id.rev_langauge);
+        imgDone = findViewById(R.id.img_done);
+        imgBack = findViewById(R.id.img_back);
+        txtTitle = findViewById(R.id.txt_title);
         
-        if (!selectedLanguageCode.equals(currentLanguageCode)) {
-            // Save and apply new language
-            LocaleHelper.setLocale(this, selectedLanguageCode);
-            
-            // Mark language as selected (for first launch)
-            SaveState languageState = new SaveState(this, "LANGUAGE_SELECTED");
-            languageState.setState(1);
-            
-            // Update current language
-            currentLanguageCode = selectedLanguageCode;
-            
-            // Update adapter selection
-            adapter.updateSelection(selectedLanguageCode);
-            
-            // Restart activity to apply language changes immediately
-            recreate();
+        // Set title from string resource
+        txtTitle.setText(getString(R.string.language));
+        
+        // Show back button
+        imgBack.setVisibility(android.view.View.VISIBLE);
+    }
+
+    private void setupLanguageList() {
+        languageList = new ArrayList<>();
+        
+        // Add all 10 supported languages
+        languageList.add(new LanguageModel(getString(R.string.lang_english), "en", "US"));
+        languageList.add(new LanguageModel(getString(R.string.lang_chinese), "zh", "CN"));
+        languageList.add(new LanguageModel(getString(R.string.lang_hindi), "hi", "IN"));
+        languageList.add(new LanguageModel(getString(R.string.lang_spanish), "es", "ES"));
+        languageList.add(new LanguageModel(getString(R.string.lang_arabic), "ar", "SA"));
+        languageList.add(new LanguageModel(getString(R.string.lang_french), "fr", "FR"));
+        languageList.add(new LanguageModel(getString(R.string.lang_bengali), "bn", "BD"));
+        languageList.add(new LanguageModel(getString(R.string.lang_portuguese), "pt", "PT"));
+        languageList.add(new LanguageModel(getString(R.string.lang_russian), "ru", "RU"));
+        languageList.add(new LanguageModel(getString(R.string.lang_urdu), "ur", "PK"));
+
+        // Set current language as selected
+        String currentLanguage = LocaleHelper.getLanguage(this);
+        for (int i = 0; i < languageList.size(); i++) {
+            if (languageList.get(i).getLanguageCode().equals(currentLanguage)) {
+                languageList.get(i).setSelected(true);
+                selectedPosition = i;
+                break;
+            }
         }
+        
+        // If no match found, default to English (position 0)
+        if (selectedPosition == 0 && !currentLanguage.equals("en")) {
+            languageList.get(0).setSelected(true);
+            selectedPosition = 0;
+        }
+    }
+
+    private void setupRecyclerView() {
+        languageAdapter = new LanguageAdapter(this, languageList, this);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(languageAdapter);
+    }
+
+    private void setupClickListeners() {
+        imgDone.setOnClickListener(v -> applyLanguageChange());
+        
+        imgBack.setOnClickListener(v -> onBackPressed());
     }
 
     @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(LocaleHelper.attachBaseContext(newBase));
+    public void onLanguageSelected(LanguageModel language, int position) {
+        selectedPosition = position;
+        languageAdapter.updateSelection(position);
+    }
+
+    private void applyLanguageChange() {
+        if (selectedPosition >= 0 && selectedPosition < languageList.size()) {
+            LanguageModel selectedLanguage = languageList.get(selectedPosition);
+            
+            // Apply the language change immediately
+            LocaleHelper.setLocale(this, selectedLanguage.getLanguageCode(), selectedLanguage.getCountryCode());
+            
+            // Show success message
+            Toast.makeText(this, getString(R.string.language_changed), Toast.LENGTH_SHORT).show();
+            
+            // Restart the main activity to apply changes completely
+            restartApp();
+        }
+    }
+
+    private void restartApp() {
+        // Create intent to restart the main activity
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
+        
+        // Apply transition animation
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+
+    @Override
+    protected void attachBaseContext(android.content.Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
     }
 }

@@ -1,17 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">UpdateApp</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="default_web_client_id">610596201338-8jkqtv5msdu5q7mi0qs0gho2tu8a8esv.apps.googleusercontent.com</string>
+    <string name="hello_blank_fragment">ہیلو خالی ٹکڑا</string>
+    
+    <!-- Language Selection -->
     <string name="language">زبان</string>
-    <string name="language_english">انگریزی</string>
-    <string name="language_chinese">چینی</string>
-    <string name="language_hindi">ہندی</string>
-    <string name="language_spanish">ہسپانوی</string>
-    <string name="language_arabic">عربی</string>
-    <string name="language_french">فرانسیسی</string>
-    <string name="language_bengali">بنگالی</string>
-    <string name="language_portuguese">پرتگالی</string>
-    <string name="language_russian">روسی</string>
-    <string name="language_urdu">اردو</string>
+    <string name="select_language">زبان منتخب کریں</string>
+    
+    <!-- Language Names -->
+    <string name="lang_english">English</string>
+    <string name="lang_chinese">中文 (Chinese)</string>
+    <string name="lang_hindi">हिन्दी (Hindi)</string>
+    <string name="lang_spanish">Español (Spanish)</string>
+    <string name="lang_arabic">العربية (Arabic)</string>
+    <string name="lang_french">Français (French)</string>
+    <string name="lang_bengali">বাংলা (Bengali)</string>
+    <string name="lang_portuguese">Português (Portuguese)</string>
+    <string name="lang_russian">Русский (Russian)</string>
+    <string name="lang_urdu">اردو (Urdu)</string>
+    
+    <!-- Login Screen -->
+    <string name="login_to_account">اپنے اکاؤنٹ میں\nلاگ ان کریں</string>
+    <string name="your_email">آپ کا ای میل</string>
+    <string name="enter_email">اپنا ای میل داخل کریں</string>
+    <string name="your_password">آپ کا پاس ورڈ</string>
+    <string name="enter_password">اپنا پاس ورڈ داخل کریں</string>
+    <string name="forget_password">پاس ورڈ بھول گئے</string>
+    <string name="log_in">لاگ ان</string>
+    <string name="dont_have_account">اکاؤنٹ نہیں ہے؟ سائن اپ کریں</string>
+    
+    <!-- Sign Up Screen -->
+    <string name="create_account">اکاؤنٹ\nبنائیں</string>
+    <string name="your_name">آپ کا نام</string>
+    <string name="enter_name">اپنا نام داخل کریں</string>
+    <string name="mobile_number">موبائل نمبر</string>
+    <string name="enter_mobile">موبائل نمبر داخل کریں</string>
+    <string name="sign_up">سائن اپ</string>
+    <string name="already_have_account">پہلے سے اکاؤنٹ ہے؟ لاگ ان کریں</string>
+    
+    <!-- Profile Screen -->
+    <string name="profile">پروفائل</string>
+    <string name="unknown">نامعلوم</string>
+    <string name="sample_email">abc@gmail.com</string>
+    <string name="general">عام</string>
+    <string name="check_new">نیا کیا دیکھیں</string>
+    <string name="rate_us">ہمیں ریٹ کریں</string>
+    <string name="help">مدد</string>
+    <string name="share_app">ایپ شیئر کریں</string>
+    <string name="terms_conditions">شرائط و ضوابط</string>
+    <string name="privacy_policy">رازداری کی پالیسی</string>
+    <string name="help_support">مدد اور سپورٹ</string>
+    <string name="contact_us">ہم سے رابطہ کریں</string>
+    <string name="general_inquiry">عمومی استفسار</string>
+    <string name="logout">لاگ آؤٹ</string>
+    <string name="version">ورژن</string>
+    
+    <!-- Common UI Elements -->
+    <string name="done">مکمل</string>
+    <string name="back">واپس</string>
+    <string name="save">محفوظ کریں</string>
+    <string name="cancel">منسوخ</string>
+    <string name="ok">ٹھیک ہے</string>
+    <string name="yes">ہاں</string>
+    <string name="no">نہیں</string>
+    
+    <!-- Messages -->
+    <string name="language_changed">زبان کامیابی سے تبدیل ہو گئی</string>
+    <string name="restart_required">زبان کی تبدیلیاں لاگو کرنے کے لیے براہ کرم ایپ کو دوبارہ شروع کریں</string>
+    <string name="logout_confirmation">کیا آپ واقعی لاگ آؤٹ کرنا چاہتے ہیں؟</string>
+    <string name="share_message">ارے، اس حیرت انگیز ایپ کو دیکھیں: %s</string>
+    
+    <!-- Progress Messages -->
+    <string name="logging_in">لاگ ان ہو رہا ہے</string>
+    <string name="please_wait">براہ کرم انتظار کریں...</string>
+    <string name="creating_account">آپ کا اکاؤنٹ بنایا جا رہا ہے</string>
+    <string name="account_creating">آپ کا اکاؤنٹ بن رہا ہے</string>
+    <string name="profile_uploading">پروفائل اپ لوڈ ہو رہا ہے</string>
+    <string name="uploading_profile">ہم آپ کا پروفائل اپ لوڈ کر رہے ہیں</string>
+    <string name="verifying_otp">OTP کی تصدیق</string>
+    <string name="otp_verification">OTP کی تصدیق</string>
+    <string name="verification_code_sent">ہم نے تصدیقی کوڈ بھیجا ہے</string>
+    <string name="verify">تصدیق کریں</string>
+    <string name="enter_valid_otp">براہ کرم درست OTP داخل کریں</string>
+    <string name="otp_verification_failed">OTP کی تصدیق ناکام</string>
+    <string name="otp_error">OTP خرابی: %1$s</string>
+    <string name="auth_error_user_not_found">تصدیق کی خرابی: سائن ان کے بعد صارف نہیں ملا</string>
+    
+    <!-- Error Messages -->
+    <string name="enter_valid_email">اپنا درست ای میل داخل کریں</string>
+    <string name="enter_strong_password">مضبوط پاس ورڈ داخل کریں</string>
+    <string name="enter_good_name">اپنا اچھا نام داخل کریں</string>
+    <string name="enter_valid_mobile">اپنا درست موبائل نمبر داخل کریں</string>
+    <string name="permission_denied">اجازت مسترد!</string>
+    <string name="profile_updated">پروفائل اپ ڈیٹ</string>
+    <string name="coming_soon">جلد آ رہا ہے</string>
+    
+    <!-- Additional strings -->
+    <string name="default_web_client_id">610596201338-8jkqtv5msdu5q7mi0qs0gho2tu8a8esv.apps.googleusercontent.com</string>
+    <string name="firebase_auth_failed">Firebase تصدیق ناکام</string>
+    <string name="google_signin_error">Google سائن ان خرابی: %1$d\n%2$s</string>
+    <string name="google_login_message">Google کے ساتھ لاگ ان کرنے کے لیے Google بٹن پر کلک کریں</string>
+    <string name="error_message">خرابی: %1$s</string>
+    <string name="generic_error">ایک غیر متوقع خرابی پیش آئی</string>
+    <string name="email_already_registered">یہ ای میل پہلے سے رجسٹرڈ ہے۔ براہ کرم لاگ ان کریں۔</string>
+    <string name="back_to">واپس جائیں</string>
+    <string name="forget_password_button">پاس ورڈ بھول گئے</string>
+    <string name="check_email">براہ کرم اپنا ای میل چیک کریں</string>
 </resources>
-
