@@ -30,6 +30,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
@@ -69,72 +70,10 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog.setTitle(getString(R.string.logging_in));
         progressDialog.setMessage(getString(R.string.please_wait));
 
-        binding.emailBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                String email = binding.edtEmail.getText().toString();
-                String password = binding.edtPassword.getText().toString();
-
-                if (email.isEmpty()) {
-                    binding.edtEmail.setError(getString(R.string.enter_valid_email));
-                } else if (password.isEmpty()) {
-                    binding.edtPassword.setError(getString(R.string.enter_strong_password));
-                } else {
-
-                    progressDialog.show();
-                    auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-
-                            if (task.isSuccessful()) {
-                                progressDialog.dismiss();
-                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                startActivity(intent);
-                                finish();
-                            } else {
-                                progressDialog.dismiss();
-                                Toast.makeText(LoginActivity.this, task.getException().getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-                }
-            }
-        });
+        binding.emailBtn.setOnClickListener(v -> performEmailLogin());
 
 
-        binding.btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                String email = binding.edtEmail.getText().toString();
-                String password = binding.edtPassword.getText().toString();
-
-                if (email.isEmpty()) {
-                    binding.edtEmail.setError(getString(R.string.enter_valid_email));
-                } else if (password.isEmpty()) {
-                    binding.edtPassword.setError(getString(R.string.enter_strong_password));
-                } else {
-
-                    progressDialog.show();
-                    auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-
-                            if (task.isSuccessful()) {
-                                progressDialog.dismiss();
-                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                startActivity(intent);
-                                finish();
-                            } else {
-                                progressDialog.dismiss();
-                                Toast.makeText(LoginActivity.this, task.getException().getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-                }
-            }
-        });
+        binding.btnLogin.setOnClickListener(v -> performEmailLogin());
 
         binding.forgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -158,6 +97,34 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         googleBtn.setOnClickListener(v -> signInWithGoogle());
+    }
+
+    private void performEmailLogin() {
+        String email = binding.edtEmail.getText().toString().trim().toLowerCase(Locale.ROOT);
+        String password = binding.edtPassword.getText().toString();
+
+        if (email.isEmpty()) {
+            binding.edtEmail.setError(getString(R.string.enter_valid_email));
+        } else if (password.isEmpty()) {
+            binding.edtPassword.setError(getString(R.string.enter_strong_password));
+        } else {
+            progressDialog.show();
+            auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    progressDialog.dismiss();
+                    if (task.isSuccessful()) {
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        Exception e = task.getException();
+                        String msg = (e != null) ? e.getLocalizedMessage() : getString(R.string.enter_valid_email);
+                        Toast.makeText(LoginActivity.this, msg, Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
     }
 
     void signInWithGoogle() {

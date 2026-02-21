@@ -13,3 +13,6 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# AI prompt artifacts
+_hunter_prompt.txt
