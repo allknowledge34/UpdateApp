@@ -21,8 +21,6 @@ import com.example.updateapp.R;
 import com.example.updateapp.databinding.ActivityOtpactivityBinding;
 import com.example.updateapp.models.UserModel;
 import com.example.updateapp.utils.LocaleHelper;
-import com.google.firebase.auth.AuthCredential;
-import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.PhoneAuthCredential;
@@ -38,6 +36,7 @@ public class OTPActivity extends AppCompatActivity {
     public static PhoneAuthCredential autoCredential = null;
 
     String name, email, number, password, verificationId;
+    boolean autoVerify;
 
     ProgressDialog dialog;
 
@@ -69,25 +68,22 @@ public class OTPActivity extends AppCompatActivity {
         });
 
         binding.btnLogin.setOnClickListener(v -> {
-            String otp = getOtp();
+            PhoneAuthCredential credential;
 
-            if (otp.length() < 6) {
-                Toast.makeText(this, getString(R.string.enter_valid_otp), Toast.LENGTH_SHORT).show();
-                return;
+            if (autoVerify && autoCredential != null) {
+                credential = autoCredential;
+                autoCredential = null; // Prevent stale reuse across signup sessions
+            } else {
+                String otp = getOtp();
+                if (otp.length() < 6) {
+                    Toast.makeText(this, getString(R.string.enter_valid_otp), Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                credential = PhoneAuthProvider.getCredential(verificationId, otp);
             }
 
             dialog.show();
-
-            if (autoCredential != null) {
-
-                verifyCredential(autoCredential);
-            } else {
-
-                PhoneAuthCredential credential =
-                        PhoneAuthProvider.getCredential(verificationId, otp);
-
-                verifyCredential(credential);
-            }
+            verifyCredential(credential);
         });
     }
 
@@ -97,6 +93,7 @@ public class OTPActivity extends AppCompatActivity {
         number = getIntent().getStringExtra("number");
         password = getIntent().getStringExtra("password");
         verificationId = getIntent().getStringExtra("verificationId");
+        autoVerify = getIntent().getBooleanExtra("autoVerify", false);
 
         if (number == null) number = "";
         binding.tvUserNumber.setText(number);
@@ -146,16 +143,39 @@ public class OTPActivity extends AppCompatActivity {
                 binding.etOtp6.getText().toString().trim();
     }
 
-    private void verifyCredential(PhoneAuthCredential credential) {
+    private void verifyCredential(PhoneAuthCredential phoneCredential) {
         if (!dialog.isShowing()) dialog.show();
 
-        auth.signInWithCredential(credential)
-                .addOnCompleteListener(task -> {
+        // If no email/password provided, fall back to phone-only auth
+        if (email == null || email.isEmpty() || password == null || password.isEmpty()) {
+            auth.signInWithCredential(phoneCredential)
+                    .addOnCompleteListener(task -> {
+                        if (!task.isSuccessful()) {
+                            dialog.dismiss();
+                            String m = task.getException() != null ? task.getException().getMessage() : getString(R.string.otp_verification_failed);
+                            Toast.makeText(OTPActivity.this, getString(R.string.otp_error, m), Toast.LENGTH_LONG).show();
+                            return;
+                        }
+                        if (auth.getCurrentUser() == null) {
+                            dialog.dismiss();
+                            Toast.makeText(OTPActivity.this, getString(R.string.auth_error_user_not_found), Toast.LENGTH_LONG).show();
+                            return;
+                        }
+                        saveUserToFirestoreAndContinue(auth.getCurrentUser().getUid(), name, email, number, password);
+                    });
+            return;
+        }
 
-                    if (!task.isSuccessful()) {
+        // Create email/password user FIRST so signInWithEmailAndPassword is guaranteed to work.
+        // The previous approach (signInWithCredential(phone) → linkWithCredential(email)) created
+        // a phone-primary account where email login could fail with "Invalid Email".
+        auth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(createTask -> {
+                    if (!createTask.isSuccessful()) {
                         dialog.dismiss();
-                        String m = task.getException() != null ? task.getException().getMessage() : getString(R.string.otp_verification_failed);
-                        Toast.makeText(OTPActivity.this, getString(R.string.otp_error, m), Toast.LENGTH_LONG).show();
+                        Exception e = createTask.getException();
+                        String msg = e != null ? e.getMessage() : getString(R.string.generic_error);
+                        Toast.makeText(OTPActivity.this, msg, Toast.LENGTH_LONG).show();
                         return;
                     }
 
@@ -167,32 +187,24 @@ public class OTPActivity extends AppCompatActivity {
 
                     final String uid = auth.getCurrentUser().getUid();
 
-                    if (email == null || email.isEmpty() || password == null || password.isEmpty()) {
-                        saveUserToFirestoreAndContinue(uid, name, email, number, password);
-                        return;
-                    }
-
-                    AuthCredential emailCredential = EmailAuthProvider.getCredential(email, password);
-
-                    auth.getCurrentUser().linkWithCredential(emailCredential)
+                    // Link phone credential to verify the OTP and attach the phone number
+                    auth.getCurrentUser().linkWithCredential(phoneCredential)
                             .addOnCompleteListener(linkTask -> {
-
                                 if (linkTask.isSuccessful()) {
                                     saveUserToFirestoreAndContinue(uid, name, email, number, password);
                                 } else {
-                                    dialog.dismiss();
-
                                     Exception e = linkTask.getException();
-                                    String msg = e != null ? e.getMessage() : "Unknown linking error";
 
                                     if (e instanceof FirebaseAuthUserCollisionException) {
-                                        Toast.makeText(OTPActivity.this,
-                                                "This email is already registered with a different account. Please login with that email or use another email.",
-                                                Toast.LENGTH_LONG).show();
+                                        // Phone number already linked to another account.
+                                        // Email/password account is still valid — proceed.
+                                        saveUserToFirestoreAndContinue(uid, name, email, number, password);
                                     } else {
-                                        Toast.makeText(OTPActivity.this,
-                                                "Failed to link email: " + msg,
-                                                Toast.LENGTH_LONG).show();
+                                        // OTP invalid or other verification failure — roll back email account
+                                        auth.getCurrentUser().delete();
+                                        dialog.dismiss();
+                                        String msg = e != null ? e.getMessage() : getString(R.string.otp_verification_failed);
+                                        Toast.makeText(OTPActivity.this, getString(R.string.otp_error, msg), Toast.LENGTH_LONG).show();
                                     }
                                 }
                             });
