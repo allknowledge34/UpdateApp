@@ -55,6 +55,13 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         auth = FirebaseAuth.getInstance();
+
+        // Handle prefilled email from OTPActivity redirect
+        String prefilledEmail = getIntent().getStringExtra("prefilled_email");
+        if (prefilledEmail != null && !prefilledEmail.isEmpty()) {
+            binding.edtEmail.setText(prefilledEmail);
+        }
+
         googleBtn = findViewById(R.id.google_btn);
         emailBtn = findViewById(R.id.email_btn);
 
