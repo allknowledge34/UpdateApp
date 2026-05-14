@@ -186,9 +186,16 @@ public class OTPActivity extends AppCompatActivity {
                                     String msg = e != null ? e.getMessage() : "Unknown linking error";
 
                                     if (e instanceof FirebaseAuthUserCollisionException) {
+                                        // Email already exists with different account.
+                                        // Sign out this phone-only account and redirect to login with existing email.
+                                        auth.signOut();
                                         Toast.makeText(OTPActivity.this,
-                                                "This email is already registered with a different account. Please login with that email or use another email.",
+                                                "An account with this email already exists. Please login with your email and password.",
                                                 Toast.LENGTH_LONG).show();
+                                        Intent intent = new Intent(OTPActivity.this, LoginActivity.class);
+                                        intent.putExtra("prefilled_email", email);
+                                        startActivity(intent);
+                                        finish();
                                     } else {
                                         Toast.makeText(OTPActivity.this,
                                                 "Failed to link email: " + msg,
