@@ -187,15 +187,8 @@ public class OTPActivity extends AppCompatActivity {
 
                                     if (e instanceof FirebaseAuthUserCollisionException) {
                                         // Email already exists with different account.
-                                        // Sign out this phone-only account and redirect to login with existing email.
-                                        auth.signOut();
-                                        Toast.makeText(OTPActivity.this,
-                                                "An account with this email already exists. Please login with your email and password.",
-                                                Toast.LENGTH_LONG).show();
-                                        Intent intent = new Intent(OTPActivity.this, LoginActivity.class);
-                                        intent.putExtra("prefilled_email", email);
-                                        startActivity(intent);
-                                        finish();
+                                        // Save phone-based user data to Firestore first, then redirect to login.
+                                        saveUserToFirestoreOnCollision(uid, name, email, number, password);
                                     } else {
                                         Toast.makeText(OTPActivity.this,
                                                 "Failed to link email: " + msg,
@@ -203,6 +196,49 @@ public class OTPActivity extends AppCompatActivity {
                                     }
                                 }
                             });
+                });
+    }
+
+    private void saveUserToFirestoreOnCollision(String uid, String name, String email, String number, String password) {
+        if (name == null) name = "";
+        if (email == null) email = "";
+        if (number == null) number = "";
+        if (password == null) password = "";
+
+        UserModel user = new UserModel(
+                name,
+                email,
+                number,
+                password,
+                "https://firebasestorage.googleapis.com/v0/b/earning-b8942.firebasestorage.app/o/account.png?alt=media&token=***"
+        );
+
+        if (dialog.isShowing()) dialog.dismiss();
+
+        firestore.collection("users")
+                .document(uid)
+                .set(user)
+                .addOnSuccessListener(unused -> {
+                    // User data saved successfully. Now sign out and redirect to login.
+                    auth.signOut();
+                    Toast.makeText(OTPActivity.this,
+                            "An account with this email already exists. Please login with your email and password.",
+                            Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(OTPActivity.this, LoginActivity.class);
+                    intent.putExtra("prefilled_email", email);
+                    startActivity(intent);
+                    finish();
+                })
+                .addOnFailureListener(e -> {
+                    // Failed to save - still redirect to login with email prefilled.
+                    auth.signOut();
+                    Toast.makeText(OTPActivity.this,
+                            "Failed to link email: " + e.getMessage() + ". Please login with your existing account.",
+                            Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(OTPActivity.this, LoginActivity.class);
+                    intent.putExtra("prefilled_email", email);
+                    startActivity(intent);
+                    finish();
                 });
     }
 
