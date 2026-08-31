@@ -1,13 +1,14 @@
 package com.example.updateapp.views.activites;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
-import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -15,6 +16,7 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.updateapp.Helpers.SaveState;
 import com.example.updateapp.MainActivity;
 import com.example.updateapp.R;
 import com.example.updateapp.adapters.LanguageAdapter;
@@ -29,14 +31,17 @@ public class LanguageActivity extends AppCompatActivity implements LanguageAdapt
     private RecyclerView recyclerView;
     private LanguageAdapter languageAdapter;
     private List<LanguageModel> languageList;
-    private ImageView imgDone, imgBack;
+    private ImageView imgDone;
+    private ImageView imgBack;
     private TextView txtTitle;
+    private TextView txtSubtitle;
     private int selectedPosition = 0;
+    private boolean isFirstLaunch;
 
-    private RecyclerView recyclerView;
-    private LanguageAdapter adapter;
-    private List<LanguageModel> languageList;
-    private String currentLanguageCode;
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +54,8 @@ public class LanguageActivity extends AppCompatActivity implements LanguageAdapt
             return insets;
         });
 
+        isFirstLaunch = getIntent().getBooleanExtra("isFirstLaunch", false);
+
         initViews();
         setupLanguageList();
         setupRecyclerView();
@@ -56,23 +63,25 @@ public class LanguageActivity extends AppCompatActivity implements LanguageAdapt
     }
 
     private void initViews() {
-        recyclerView = findViewById(R.id.rev_langauge);
+        recyclerView = findViewById(R.id.rev_language);
         imgDone = findViewById(R.id.img_done);
         imgBack = findViewById(R.id.img_back);
         txtTitle = findViewById(R.id.txt_title);
-        
-        // Set title from string resource
-        txtTitle.setText(getString(R.string.language));
-        
-        // Show back button
-        imgBack.setVisibility(android.view.View.VISIBLE);
+        txtSubtitle = findViewById(R.id.txt_subtitle);
+
+        txtTitle.setText(getString(R.string.select_language));
+        if (txtSubtitle != null) {
+            txtSubtitle.setText(getString(R.string.choose_language));
+        }
+
+        imgDone.setContentDescription(getString(R.string.done));
+        imgBack.setContentDescription(getString(R.string.back));
+        imgBack.setVisibility(isFirstLaunch ? View.GONE : View.VISIBLE);
     }
 
     private void setupLanguageList() {
         languageList = new ArrayList<>();
-        
-        // Add all 10 supported languages
-        languageList.add(new LanguageModel(getString(R.string.lang_english), "en", "US"));
+        languageList.add(new LanguageModel(getString(R.string.lang_english), "en", ""));
         languageList.add(new LanguageModel(getString(R.string.lang_chinese), "zh", "CN"));
         languageList.add(new LanguageModel(getString(R.string.lang_hindi), "hi", "IN"));
         languageList.add(new LanguageModel(getString(R.string.lang_spanish), "es", "ES"));
@@ -83,18 +92,16 @@ public class LanguageActivity extends AppCompatActivity implements LanguageAdapt
         languageList.add(new LanguageModel(getString(R.string.lang_russian), "ru", "RU"));
         languageList.add(new LanguageModel(getString(R.string.lang_urdu), "ur", "PK"));
 
-        // Set current language as selected
         String currentLanguage = LocaleHelper.getLanguage(this);
+        selectedPosition = 0;
         for (int i = 0; i < languageList.size(); i++) {
-            if (languageList.get(i).getLanguageCode().equals(currentLanguage)) {
-                languageList.get(i).setSelected(true);
+            boolean match = languageList.get(i).getLanguageCode().equalsIgnoreCase(currentLanguage);
+            languageList.get(i).setSelected(match);
+            if (match) {
                 selectedPosition = i;
-                break;
             }
         }
-        
-        // If no match found, default to English (position 0)
-        if (selectedPosition == 0 && !currentLanguage.equals("en")) {
+        if (!languageList.get(selectedPosition).isSelected()) {
             languageList.get(0).setSelected(true);
             selectedPosition = 0;
         }
@@ -104,12 +111,12 @@ public class LanguageActivity extends AppCompatActivity implements LanguageAdapt
         languageAdapter = new LanguageAdapter(this, languageList, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(languageAdapter);
+        recyclerView.setHasFixedSize(true);
     }
 
     private void setupClickListeners() {
         imgDone.setOnClickListener(v -> applyLanguageChange());
-        
-        imgBack.setOnClickListener(v -> onBackPressed());
+        imgBack.setOnClickListener(v -> getOnBackPressedDispatcher().onBackPressed());
     }
 
     @Override
@@ -119,33 +126,25 @@ public class LanguageActivity extends AppCompatActivity implements LanguageAdapt
     }
 
     private void applyLanguageChange() {
-        if (selectedPosition >= 0 && selectedPosition < languageList.size()) {
-            LanguageModel selectedLanguage = languageList.get(selectedPosition);
-            
-            // Apply the language change immediately
-            LocaleHelper.setLocale(this, selectedLanguage.getLanguageCode(), selectedLanguage.getCountryCode());
-            
-            // Show success message
-            Toast.makeText(this, getString(R.string.language_changed), Toast.LENGTH_SHORT).show();
-            
-            // Restart the main activity to apply changes completely
-            restartApp();
-        }
+        LanguageModel selectedLanguage = languageList.get(selectedPosition);
+        LocaleHelper.setLocale(
+                this,
+                selectedLanguage.getLanguageCode(),
+                selectedLanguage.getCountryCode()
+        );
+
+        new SaveState(this, "LANGUAGE_SELECTED").setState(1);
+        Toast.makeText(this, getString(R.string.language_changed), Toast.LENGTH_SHORT).show();
+        restartApp();
     }
 
     private void restartApp() {
-        // Create intent to restart the main activity
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        Intent intent = isFirstLaunch
+                ? new Intent(this, OnboardingActivity.class)
+                : new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
-        
-        // Apply transition animation
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-    }
-
-    @Override
-    protected void attachBaseContext(android.content.Context newBase) {
-        super.attachBaseContext(LocaleHelper.onAttach(newBase));
     }
 }

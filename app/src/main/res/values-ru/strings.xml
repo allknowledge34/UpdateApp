@@ -6,6 +6,7 @@
     <!-- Language Selection -->
     <string name="language">Язык</string>
     <string name="select_language">Выберите язык</string>
+    <string name="choose_language">Выберите язык, который хотите использовать</string>
     
     <!-- Language Names -->
     <string name="lang_english">English</string>
@@ -106,4 +107,17 @@
     <string name="back_to">Вернуться к</string>
     <string name="forget_password_button">ЗАБЫЛИ ПАРОЛЬ</string>
     <string name="check_email">Пожалуйста, Проверьте Ваш Email</string>
+    <string name="write_something">Напишите что-нибудь</string>
+    <string name="failed_save_user">Не удалось сохранить пользователя: %1$s</string>
+    <string name="chatbot">Чат-бот</string>
+    <string name="advertisement_space">Рекламное место</string>
+    <string name="chat_placeholder">Чем могу помочь сегодня?</string>
+    <string name="splash_title">Приложение для учёта\nрасходов с ИИ</string>
+    <string name="splash_subtitle">Отслеживайте, управляйте и анализируйте финансы\nбез усилий с помощью ИИ</string>
+    <string name="onboarding_title_1">Добро пожаловать в FinTrack</string>
+    <string name="onboarding_title_2">Учёт • Анализ • Рост</string>
+    <string name="onboarding_title_3">Лучшие денежные привычки</string>
+    <string name="onboarding_subtitle_1">Ваш ИИ-помощник для разумных трат,\nлучшей экономии и полной финансовой ясности.</string>
+    <string name="onboarding_subtitle_2">Понимайте расходы с помощью наглядных графиков, умных подсказок и данных в реальном времени,\nчтобы всё держать под контролем.</string>
+    <string name="onboarding_subtitle_3">Задавайте бюджеты, будьте организованны и принимайте уверенные финансовые решения\nс помощью ИИ-чата.</string>
 </resources>

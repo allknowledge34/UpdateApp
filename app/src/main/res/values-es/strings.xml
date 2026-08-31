@@ -6,6 +6,7 @@
     <!-- Language Selection -->
     <string name="language">Idioma</string>
     <string name="select_language">Seleccionar idioma</string>
+    <string name="choose_language">Elige el idioma que quieres usar</string>
     
     <!-- Language Names -->
     <string name="lang_english">English</string>
@@ -106,4 +107,17 @@
     <string name="back_to">Volver a</string>
     <string name="forget_password_button">OLVIDÉ MI CONTRASEÑA</string>
     <string name="check_email">Por Favor Revisa Tu Email</string>
+    <string name="write_something">Escribe algo</string>
+    <string name="failed_save_user">No se pudo guardar el usuario: %1$s</string>
+    <string name="chatbot">Chatbot</string>
+    <string name="advertisement_space">Espacio publicitario</string>
+    <string name="chat_placeholder">¿Cómo puedo ayudarte hoy?</string>
+    <string name="splash_title">Gestor de gastos\ncon IA</string>
+    <string name="splash_subtitle">Controla, gestiona y analiza tus finanzas\nsin esfuerzo con información impulsada por IA</string>
+    <string name="onboarding_title_1">Bienvenido a FinTrack</string>
+    <string name="onboarding_title_2">Registra • Analiza • Mejora</string>
+    <string name="onboarding_title_3">Mejores hábitos con el dinero</string>
+    <string name="onboarding_subtitle_1">Tu compañero de IA para gastar mejor,\nahorrar más y tener claridad financiera.</string>
+    <string name="onboarding_subtitle_2">Entiende tus gastos con visuales claros, ideas inteligentes y patrones en tiempo real\nque te mantienen al control.</string>
+    <string name="onboarding_subtitle_3">Define presupuestos, organízate y toma decisiones financieras\ncon confianza usando el chatbot de IA.</string>
 </resources>

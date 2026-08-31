@@ -6,6 +6,7 @@
     <!-- Language Selection -->
     <string name="language">भाषा</string>
     <string name="select_language">भाषा चुनें</string>
+    <string name="choose_language">वह भाषा चुनें जिसका आप उपयोग करना चाहते हैं</string>
     
     <!-- Language Names -->
     <string name="lang_english">English</string>
@@ -106,4 +107,17 @@
     <string name="back_to">वापस जाएं</string>
     <string name="forget_password_button">पासवर्ड भूल गए</string>
     <string name="check_email">कृपया अपना ईमेल जांचें</string>
+    <string name="write_something">कुछ लिखें</string>
+    <string name="failed_save_user">उपयोगकर्ता सहेजने में विफल: %1$s</string>
+    <string name="chatbot">चैटबॉट</string>
+    <string name="advertisement_space">विज्ञापन स्थान</string>
+    <string name="chat_placeholder">आज मैं आपकी कैसे मदद कर सकता हूँ?</string>
+    <string name="splash_title">AI-संचालित खर्च\nप्रबंधक ऐप</string>
+    <string name="splash_subtitle">AI अंतर्दृष्टि के साथ अपने वित्त को\nआसानी से ट्रैक, प्रबंधित और विश्लेषित करें</string>
+    <string name="onboarding_title_1">FinTrack में आपका स्वागत है</string>
+    <string name="onboarding_title_2">ट्रैक • विश्लेषण • सुधार</string>
+    <string name="onboarding_title_3">बेहतर पैसे की आदतें बनाएं</string>
+    <string name="onboarding_subtitle_1">समझदारी से खर्च, बेहतर बचत और पूरी वित्तीय स्पष्टता के लिए आपका ऑल-इन-वन AI साथी।</string>
+    <string name="onboarding_subtitle_2">साफ विज़ुअल, स्मार्ट अंतर्दृष्टि और रियल-टाइम खर्च पैटर्न से अपने खर्च को समझें\nजो आपको नियंत्रण में रखते हैं।</string>
+    <string name="onboarding_subtitle_3">बजट सेट करें, व्यवस्थित रहें, और शक्तिशाली AI-चैटबॉट टूल से\nआत्मविश्वास के साथ वित्तीय निर्णय लें।</string>
 </resources>

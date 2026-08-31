@@ -6,6 +6,7 @@
     <!-- Language Selection -->
     <string name="language">Language</string>
     <string name="select_language">Select Language</string>
+    <string name="choose_language">Choose the language you want to use</string>
     
     <!-- Language Names -->
     <string name="lang_english">English</string>
@@ -105,4 +106,17 @@
     <string name="back_to">Back to</string>
     <string name="forget_password_button">FORGET PASSWORD</string>
     <string name="check_email">Please Check Your Email</string>
+    <string name="write_something">Write something</string>
+    <string name="failed_save_user">Failed to save user: %1$s</string>
+    <string name="chatbot">Chatbot</string>
+    <string name="advertisement_space">Advertisement Space</string>
+    <string name="chat_placeholder">How can I assist you today?</string>
+    <string name="splash_title">AI-Powered Expense\nManager App</string>
+    <string name="splash_subtitle">Track, manage, and analyze your finances\neffortlessly with AI-driven insights</string>
+    <string name="onboarding_title_1">Welcome to FinTrack</string>
+    <string name="onboarding_title_2">Track • Analyze • Improve</string>
+    <string name="onboarding_title_3">Build Better Money Habits</string>
+    <string name="onboarding_subtitle_1">Your all-in-one AI companion for smarter spending,\nbetter savings, and complete financial clarity.</string>
+    <string name="onboarding_subtitle_2">Understand your expenses with clean visuals, smart insights, and real-time spending patterns\nthat keep you in control.</string>
+    <string name="onboarding_subtitle_3">Set budgets, stay organized, and make confident \nfinancial decisions with powerful AI-Chatbot tools.</string>
 </resources>

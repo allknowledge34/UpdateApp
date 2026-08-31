@@ -6,6 +6,7 @@
     <!-- Language Selection -->
     <string name="language">ভাষা</string>
     <string name="select_language">ভাষা নির্বাচন করুন</string>
+    <string name="choose_language">আপনি যে ভাষা ব্যবহার করতে চান তা বেছে নিন</string>
     
     <!-- Language Names -->
     <string name="lang_english">English</string>
@@ -106,4 +107,17 @@
     <string name="back_to">ফিরে যান</string>
     <string name="forget_password_button">পাসওয়ার্ড ভুলে গেছেন</string>
     <string name="check_email">অনুগ্রহ করে আপনার ইমেইল চেক করুন</string>
+    <string name="write_something">কিছু লিখুন</string>
+    <string name="failed_save_user">ব্যবহারকারী সংরক্ষণ করতে ব্যর্থ: %1$s</string>
+    <string name="chatbot">চ্যাটবট</string>
+    <string name="advertisement_space">বিজ্ঞাপনের স্থান</string>
+    <string name="chat_placeholder">আজ আমি আপনাকে কীভাবে সাহায্য করতে পারি?</string>
+    <string name="splash_title">AI-চালিত খরচ\nব্যবস্থাপক অ্যাপ</string>
+    <string name="splash_subtitle">AI অন্তর্দৃষ্টি দিয়ে আপনার অর্থ সহজে\nট্র্যাক, পরিচালনা ও বিশ্লেষণ করুন</string>
+    <string name="onboarding_title_1">FinTrack-এ স্বাগতম</string>
+    <string name="onboarding_title_2">ট্র্যাক • বিশ্লেষণ • উন্নতি</string>
+    <string name="onboarding_title_3">ভালো অর্থ অভ্যাস গড়ুন</string>
+    <string name="onboarding_subtitle_1">স্মার্ট খরচ, ভালো সঞ্চয় এবং পূর্ণ আর্থিক স্বচ্ছতার জন্য আপনার অল-ইন-ওয়ান AI সঙ্গী।</string>
+    <string name="onboarding_subtitle_2">পরিষ্কার ভিজ্যুয়াল, স্মার্ট অন্তর্দৃষ্টি এবং রিয়েল-টাইম খরচের ধরন দিয়ে\nআপনার ব্যয় বুঝুন যা আপনাকে নিয়ন্ত্রণে রাখে।</string>
+    <string name="onboarding_subtitle_3">বাজেট সেট করুন, সংগঠিত থাকুন, এবং শক্তিশালী AI-চ্যাটবট দিয়ে\nআত্মবিশ্বাসের সাথে আর্থিক সিদ্ধান্ত নিন।</string>
 </resources>

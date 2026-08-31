@@ -11,7 +11,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.updateapp.Helpers.LocaleHelper;
 import com.example.updateapp.R;
 import com.example.updateapp.databinding.ActivitySignUpBinding;
 import com.example.updateapp.utils.LocaleHelper;

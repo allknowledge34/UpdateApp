@@ -11,7 +11,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.updateapp.Helpers.LocaleHelper;
 import com.example.updateapp.R;
 import com.example.updateapp.databinding.ActivityNewUpdateBinding;
 import com.example.updateapp.utils.LocaleHelper;

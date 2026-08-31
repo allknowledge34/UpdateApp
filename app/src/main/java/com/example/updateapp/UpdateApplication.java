@@ -11,4 +11,14 @@ public class UpdateApplication extends Application {
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(LocaleHelper.onAttach(base, "en"));
     }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        LocaleHelper.setLocale(
+                this,
+                LocaleHelper.getLanguage(this),
+                LocaleHelper.getCountry(this)
+        );
+    }
 }

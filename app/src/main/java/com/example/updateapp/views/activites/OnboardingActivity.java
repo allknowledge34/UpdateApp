@@ -13,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.updateapp.Helpers.LocaleHelper;
 import com.example.updateapp.Helpers.SaveState;
 import com.example.updateapp.R;
 import com.example.updateapp.adapters.OnboardingAdapter;

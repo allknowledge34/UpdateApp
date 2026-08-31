@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.updateapp.R;
@@ -17,9 +18,9 @@ import java.util.List;
 
 public class LanguageAdapter extends RecyclerView.Adapter<LanguageAdapter.LanguageViewHolder> {
 
-    private Context context;
-    private List<LanguageModel> languageList;
-    private OnLanguageSelectedListener listener;
+    private final Context context;
+    private final List<LanguageModel> languageList;
+    private final OnLanguageSelectedListener listener;
 
     public interface OnLanguageSelectedListener {
         void onLanguageSelected(LanguageModel language, int position);
@@ -41,18 +42,21 @@ public class LanguageAdapter extends RecyclerView.Adapter<LanguageAdapter.Langua
     @Override
     public void onBindViewHolder(@NonNull LanguageViewHolder holder, int position) {
         LanguageModel language = languageList.get(position);
-        
         holder.txtLanguageName.setText(language.getLanguageName());
-        
-        if (language.isSelected()) {
-            holder.imgSelected.setVisibility(View.VISIBLE);
-        } else {
-            holder.imgSelected.setVisibility(View.GONE);
-        }
+
+        boolean selected = language.isSelected();
+        holder.itemView.setBackgroundResource(
+                selected ? R.drawable.bg_language_item_selected : R.drawable.bg_language_item
+        );
+        holder.imgSelected.setVisibility(selected ? View.VISIBLE : View.INVISIBLE);
+        holder.txtLanguageName.setTextColor(
+                ContextCompat.getColor(context, selected ? R.color.themeColor : R.color.black)
+        );
+        holder.itemView.setSelected(selected);
 
         holder.itemView.setOnClickListener(v -> {
             if (listener != null) {
-                listener.onLanguageSelected(language, position);
+                listener.onLanguageSelected(language, holder.getBindingAdapterPosition());
             }
         });
     }

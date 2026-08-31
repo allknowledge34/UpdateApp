@@ -6,6 +6,7 @@
     <!-- Language Selection -->
     <string name="language">زبان</string>
     <string name="select_language">زبان منتخب کریں</string>
+    <string name="choose_language">وہ زبان منتخب کریں جسے آپ استعمال کرنا چاہتے ہیں</string>
     
     <!-- Language Names -->
     <string name="lang_english">English</string>
@@ -106,4 +107,17 @@
     <string name="back_to">واپس جائیں</string>
     <string name="forget_password_button">پاس ورڈ بھول گئے</string>
     <string name="check_email">براہ کرم اپنا ای میل چیک کریں</string>
+    <string name="write_something">کچھ لکھیں</string>
+    <string name="failed_save_user">صارف محفوظ کرنے میں ناکامی: %1$s</string>
+    <string name="chatbot">چیٹ بوٹ</string>
+    <string name="advertisement_space">اشتہاری جگہ</string>
+    <string name="chat_placeholder">آج میں آپ کی کیسے مدد کر سکتا ہوں؟</string>
+    <string name="splash_title">AI سے چلنے والا خرچ\nمینیجر ایپ</string>
+    <string name="splash_subtitle">AI بصیرت کے ساتھ اپنے مالیات کو\nآسانی سے ٹریک، منظم اور تجزیہ کریں</string>
+    <string name="onboarding_title_1">FinTrack میں خوش آمدید</string>
+    <string name="onboarding_title_2">ٹریک • تجزیہ • بہتری</string>
+    <string name="onboarding_title_3">بہتر پیسے کی عادتیں بنائیں</string>
+    <string name="onboarding_subtitle_1">ہوشیار خرچ، بہتر بچت اور مکمل مالی وضاحت کے لیے آپ کا آل ان ون AI ساتھی۔</string>
+    <string name="onboarding_subtitle_2">صاف بصری، اسمارٹ بصیرت اور حقیقی وقت کے خرچ کے انداز سے اپنے اخراجات سمجھیں\nجو آپ کو کنٹرول میں رکھتے ہیں۔</string>
+    <string name="onboarding_subtitle_3">بجٹ مقرر کریں، منظم رہیں، اور طاقتور AI-چیٹ بوٹ سے\nاعتماد کے ساتھ مالی فیصلے کریں۔</string>
 </resources>

@@ -16,7 +16,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.updateapp.Helpers.LocaleHelper;
 import com.example.updateapp.MainActivity;
 import com.example.updateapp.R;
 import com.example.updateapp.databinding.ActivityOtpactivityBinding;
@@ -225,7 +224,7 @@ public class OTPActivity extends AppCompatActivity {
                 })
                 .addOnFailureListener(e -> {
                     if (dialog.isShowing()) dialog.dismiss();
-                    Toast.makeText(OTPActivity.this, "Failed to save user data: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(OTPActivity.this, getString(R.string.failed_save_user, e.getMessage()), Toast.LENGTH_LONG).show();
                 });
     }
 

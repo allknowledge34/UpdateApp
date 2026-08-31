@@ -7,6 +7,7 @@
     <!-- Language Selection -->
     <string name="language">语言</string>
     <string name="select_language">选择语言</string>
+    <string name="choose_language">选择您要使用的语言</string>
     
     <!-- Language Names -->
     <string name="lang_english">English</string>
@@ -106,4 +107,17 @@
     <string name="otp_verification_failed">验证码验证失败</string>
     <string name="otp_error">验证码错误: %1$s</string>
     <string name="auth_error_user_not_found">身份验证错误：登录后未找到用户</string>
+    <string name="write_something">请输入内容</string>
+    <string name="failed_save_user">保存用户失败：%1$s</string>
+    <string name="chatbot">聊天机器人</string>
+    <string name="advertisement_space">广告位</string>
+    <string name="chat_placeholder">今天我能帮您什么？</string>
+    <string name="splash_title">AI 驱动的\n支出管理应用</string>
+    <string name="splash_subtitle">借助 AI 洞察，轻松跟踪、管理和分析您的财务</string>
+    <string name="onboarding_title_1">欢迎使用 FinTrack</string>
+    <string name="onboarding_title_2">记录 • 分析 • 改进</string>
+    <string name="onboarding_title_3">养成更好的理财习惯</string>
+    <string name="onboarding_subtitle_1">您的一站式 AI 助手，帮您更聪明地消费、\n更好地储蓄，并看清财务全貌。</string>
+    <string name="onboarding_subtitle_2">通过清晰图表、智能洞察和实时消费趋势\n了解支出，让一切尽在掌握。</string>
+    <string name="onboarding_subtitle_3">设定预算、保持条理，并借助强大的 AI 聊天工具\n自信地做出财务决策。</string>
 </resources>

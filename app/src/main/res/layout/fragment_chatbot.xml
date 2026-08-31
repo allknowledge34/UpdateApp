@@ -36,7 +36,7 @@
                 android:layout_marginEnd="100dp"
                 android:layout_toStartOf="@+id/mic"
                 android:layout_toEndOf="@+id/btnHistory"
-                android:text="Chatbot"
+                android:text="@string/chatbot"
                 android:layout_centerVertical="true"
                 android:singleLine="true"
                 android:textSize="20sp"

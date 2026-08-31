@@ -6,6 +6,7 @@
     <!-- Language Selection -->
     <string name="language">اللغة</string>
     <string name="select_language">اختر اللغة</string>
+    <string name="choose_language">اختر اللغة التي تريد استخدامها</string>
     
     <!-- Language Names -->
     <string name="lang_english">English</string>
@@ -106,4 +107,17 @@
     <string name="back_to">العودة إلى</string>
     <string name="forget_password_button">نسيت كلمة المرور</string>
     <string name="check_email">يرجى التحقق من بريدك الإلكتروني</string>
+    <string name="write_something">اكتب شيئاً</string>
+    <string name="failed_save_user">فشل حفظ المستخدم: %1$s</string>
+    <string name="chatbot">روبوت الدردشة</string>
+    <string name="advertisement_space">مساحة إعلانية</string>
+    <string name="chat_placeholder">كيف يمكنني مساعدتك اليوم؟</string>
+    <string name="splash_title">تطبيق إدارة المصروفات\nبالذكاء الاصطناعي</string>
+    <string name="splash_subtitle">تتبع أموالك وأدرها وحلّلها\nبسهولة مع رؤى مدعومة بالذكاء الاصطناعي</string>
+    <string name="onboarding_title_1">مرحباً بك في FinTrack</string>
+    <string name="onboarding_title_2">تتبع • حلّل • حسّن</string>
+    <string name="onboarding_title_3">ابنِ عادات مالية أفضل</string>
+    <string name="onboarding_subtitle_1">رفيقك الذكي لإنفاق أذكى،\nوتوفير أفضل، ووضوح مالي كامل.</string>
+    <string name="onboarding_subtitle_2">افهم مصروفاتك عبر رسوم واضحة ورؤى ذكية وأنماط إنفاق فورية\nتبقيك مسيطراً.</string>
+    <string name="onboarding_subtitle_3">حدد الميزانيات، وابقَ منظماً، واتخذ قرارات مالية\nواثقة باستخدام روبوت الدردشة الذكي.</string>
 </resources>
