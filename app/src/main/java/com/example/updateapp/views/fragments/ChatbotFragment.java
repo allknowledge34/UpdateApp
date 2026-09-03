@@ -16,7 +16,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.updateapp.R;
 import com.example.updateapp.adapters.MessageAdapter;
 import com.example.updateapp.databinding.FragmentChatbotBinding;
 import com.example.updateapp.models.MessageModel;
@@ -61,21 +60,21 @@ public class ChatbotFragment extends Fragment {
         binding.mic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), getString(R.string.coming_soon), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getString(com.example.updateapp.R.string.coming_soon), Toast.LENGTH_SHORT).show();
             }
         });
 
         binding.btnHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), getString(R.string.coming_soon), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getString(com.example.updateapp.R.string.coming_soon), Toast.LENGTH_SHORT).show();
             }
         });
 
         binding.file.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), getString(R.string.coming_soon), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getString(com.example.updateapp.R.string.coming_soon), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -100,14 +99,14 @@ public class ChatbotFragment extends Fragment {
                     public void onError(Throwable throwable) {
                         if (getActivity() != null) {
                             getActivity().runOnUiThread(() -> {
-                                addToChat(getString(R.string.error_message, throwable.getMessage()), MessageModel.SENT_BY_BOT);
+                                addToChat(getString(com.example.updateapp.R.string.error_message, throwable.getMessage()), MessageModel.SENT_BY_BOT);
                             });
                         }
                     }
                 });
             }
             else {
-                Toast.makeText(getContext(), getString(R.string.write_something), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getString(com.example.updateapp.R.string.write_something), Toast.LENGTH_SHORT).show();
             }
         });
 

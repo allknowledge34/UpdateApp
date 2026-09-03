@@ -15,10 +15,6 @@ public class UpdateApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        LocaleHelper.setLocale(
-                this,
-                LocaleHelper.getLanguage(this),
-                LocaleHelper.getCountry(this)
-        );
+        LocaleHelper.applyPersistedLocales(this);
     }
 }

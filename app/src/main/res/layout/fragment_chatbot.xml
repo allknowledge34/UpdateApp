@@ -90,7 +90,7 @@
             android:layout_height="wrap_content"
             android:minHeight="35dp"
             android:maxHeight="100dp"
-            android:hint="Message ..."
+            android:hint="@string/message_hint"
             android:padding="10dp"/>
 
         <ImageView

@@ -49,6 +49,9 @@ public class LanguageAdapter extends RecyclerView.Adapter<LanguageAdapter.Langua
                 selected ? R.drawable.bg_language_item_selected : R.drawable.bg_language_item
         );
         holder.imgSelected.setVisibility(selected ? View.VISIBLE : View.INVISIBLE);
+        holder.imgSelected.setContentDescription(
+                selected ? context.getString(R.string.selected_language) : null
+        );
         holder.txtLanguageName.setTextColor(
                 ContextCompat.getColor(context, selected ? R.color.themeColor : R.color.black)
         );
