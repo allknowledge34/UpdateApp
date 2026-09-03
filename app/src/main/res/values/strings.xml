@@ -105,4 +105,23 @@
     <string name="back_to">Back to</string>
     <string name="forget_password_button">FORGET PASSWORD</string>
     <string name="check_email">Please Check Your Email</string>
+    <string name="chatbot">Chatbot</string>
+    <string name="message_hint">Message ...</string>
+    <string name="write_something">Write something</string>
+    <string name="splash_title">AI-Powered Expense\nManager App</string>
+    <string name="splash_subtitle">Track, manage, and analyze your finances\neffortlessly with AI-driven insights</string>
+    <string name="onboarding_title_1">Welcome to FinTrack</string>
+    <string name="onboarding_title_2">Track • Analyze • Improve</string>
+    <string name="onboarding_title_3">Build Better Money Habits</string>
+    <string name="onboarding_subtitle_1">Your all-in-one AI companion for smarter spending,\nbetter savings, and complete financial clarity.</string>
+    <string name="onboarding_subtitle_2">Understand your expenses with clean visuals, smart insights, and real-time spending patterns\nthat keep you in control.</string>
+    <string name="onboarding_subtitle_3">Set budgets, stay organized, and make confident \nfinancial decisions with powerful AI-Chatbot tools.</string>
+    <string name="advertisement_space">Advertisement Space</string>
+    <string name="check_whats_new">Check what\'s new</string>
+    <string name="how_can_i_assist">How can I assist you today?</string>
+    <string name="email_already_registered_different">This email is already registered with a different account. Please login with that email or use another email.</string>
+    <string name="failed_to_link_email">Failed to link email: %1$s</string>
+    <string name="failed_to_save_user">Failed to save user data: %1$s</string>
+    <string name="unknown_linking_error">Unknown linking error</string>
+    <string name="selected_language">Selected language</string>
 </resources>

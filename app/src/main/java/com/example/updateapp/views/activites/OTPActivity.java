@@ -183,15 +183,15 @@ public class OTPActivity extends AppCompatActivity {
                                     dialog.dismiss();
 
                                     Exception e = linkTask.getException();
-                                    String msg = e != null ? e.getMessage() : "Unknown linking error";
+                                    String msg = e != null ? e.getMessage() : getString(R.string.unknown_linking_error);
 
                                     if (e instanceof FirebaseAuthUserCollisionException) {
                                         Toast.makeText(OTPActivity.this,
-                                                "This email is already registered with a different account. Please login with that email or use another email.",
+                                                getString(R.string.email_already_registered_different),
                                                 Toast.LENGTH_LONG).show();
                                     } else {
                                         Toast.makeText(OTPActivity.this,
-                                                "Failed to link email: " + msg,
+                                                getString(R.string.failed_to_link_email, msg),
                                                 Toast.LENGTH_LONG).show();
                                     }
                                 }
@@ -224,7 +224,7 @@ public class OTPActivity extends AppCompatActivity {
                 })
                 .addOnFailureListener(e -> {
                     if (dialog.isShowing()) dialog.dismiss();
-                    Toast.makeText(OTPActivity.this, "Failed to save user data: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(OTPActivity.this, getString(R.string.failed_to_save_user, e.getMessage()), Toast.LENGTH_LONG).show();
                 });
     }
 

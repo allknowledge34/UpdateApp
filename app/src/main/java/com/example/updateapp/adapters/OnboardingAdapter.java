@@ -8,37 +8,35 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.example.updateapp.R;
 
 public class OnboardingAdapter extends PagerAdapter {
 
-    Context context;
-    LayoutInflater layoutInflater;
+    private final Context context;
 
-    public OnboardingAdapter(Context context) {
-        this.context = context;
-    }
-
-    String titles[] = {
-          "Welcome to FinTrack",
-          "Track • Analyze • Improve",
-          "Build Better Money Habits"
+    private final int[] titles = {
+            R.string.onboarding_title_1,
+            R.string.onboarding_title_2,
+            R.string.onboarding_title_3
     };
 
-    String subtitles[] ={
-          "Your all-in-one AI companion for smarter spending,\nbetter savings, and complete financial clarity." ,
-          "Understand your expenses with clean visuals, smart insights, and real-time spending patterns\nthat keep you in control.",
-          "Set budgets, stay organized, and make confident \nfinancial decisions with powerful AI-Chatbot tools."
+    private final int[] subtitles = {
+            R.string.onboarding_subtitle_1,
+            R.string.onboarding_subtitle_2,
+            R.string.onboarding_subtitle_3
     };
 
-    int images[] = {
+    private final int[] images = {
             R.drawable.bg_1,
             R.drawable.bg_2,
             R.drawable.bg_3
     };
+
+    public OnboardingAdapter(Context context) {
+        this.context = context;
+    }
 
     @Override
     public int getCount() {
@@ -47,31 +45,28 @@ public class OnboardingAdapter extends PagerAdapter {
 
     @Override
     public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-        return view == (ConstraintLayout) object;
+        return view == object;
     }
 
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        layoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-        View v = layoutInflater.inflate(R.layout.slide, container, false);
+        View v = LayoutInflater.from(context).inflate(R.layout.slide, container, false);
 
         ImageView image = v.findViewById(R.id.slideImg);
         TextView title = v.findViewById(R.id.sliderTitle);
         TextView subtitle = v.findViewById(R.id.sliderSubTitle);
 
         image.setImageResource(images[position]);
-        title.setText(titles[position]);
-        subtitle.setText(subtitles[position]);
+        title.setText(context.getString(titles[position]));
+        subtitle.setText(context.getString(subtitles[position]));
 
         container.addView(v);
-
         return v;
-
     }
 
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-        container.removeView((ConstraintLayout) object);
+        container.removeView((View) object);
     }
 }

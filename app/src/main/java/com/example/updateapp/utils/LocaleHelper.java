@@ -4,7 +4,9 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.os.Build;
+
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.os.LocaleListCompat;
 
 import java.util.Locale;
 
@@ -14,29 +16,44 @@ public class LocaleHelper {
     private static final String PREFS_NAME = "app_prefs";
 
     public static Context onAttach(Context context) {
-        String lang = getPersistedData(context, "en");
-        String country = getPersistedCountry(context, "");
-        return setLocale(context, lang, country);
+        return onAttach(context, "en");
     }
 
     public static Context onAttach(Context context, String defaultLanguage) {
         String lang = getPersistedData(context, defaultLanguage);
         String country = getPersistedCountry(context, "");
-        return setLocale(context, lang, country);
+        return wrap(context, lang, country);
     }
 
     public static String getLanguage(Context context) {
         return getPersistedData(context, "en");
     }
 
+    public static String getCountry(Context context) {
+        return getPersistedCountry(context, "");
+    }
+
+    public static void applyPersistedLocales(Context context) {
+        applyAppLocales(getLanguage(context), getCountry(context));
+    }
+
     public static Context setLocale(Context context, String language, String country) {
-        persist(context, language, country);
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            return updateResources(context, language, country);
+        if (language == null || language.isEmpty()) {
+            language = "en";
         }
+        if (country == null || "en".equals(language)) {
+            country = "";
+        }
+        persist(context, language, country);
+        applyAppLocales(language, country);
+        return wrap(context, language, country);
+    }
 
-        return updateResourcesLegacy(context, language, country);
+    private static void applyAppLocales(String language, String country) {
+        String tag = (country == null || country.isEmpty())
+                ? language
+                : language + "-" + country;
+        AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(tag));
     }
 
     private static String getPersistedData(Context context, String defaultLanguage) {
@@ -53,27 +70,11 @@ public class LocaleHelper {
         SharedPreferences preferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString(SELECTED_LANGUAGE, language);
-        editor.putString(SELECTED_COUNTRY, country);
+        editor.putString(SELECTED_COUNTRY, country == null ? "" : country);
         editor.apply();
     }
 
-    private static Context updateResources(Context context, String language, String country) {
-        Locale locale;
-        if (country != null && !country.isEmpty()) {
-            locale = new Locale(language, country);
-        } else {
-            locale = new Locale(language);
-        }
-        Locale.setDefault(locale);
-
-        Configuration configuration = context.getResources().getConfiguration();
-        configuration.setLocale(locale);
-        configuration.setLayoutDirection(locale);
-
-        return context.createConfigurationContext(configuration);
-    }
-
-    private static Context updateResourcesLegacy(Context context, String language, String country) {
+    private static Context wrap(Context context, String language, String country) {
         Locale locale;
         if (country != null && !country.isEmpty()) {
             locale = new Locale(language, country);
@@ -83,21 +84,9 @@ public class LocaleHelper {
         Locale.setDefault(locale);
 
         Resources resources = context.getResources();
-        Configuration configuration = resources.getConfiguration();
-        configuration.locale = locale;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            configuration.setLayoutDirection(locale);
-        }
-
-        resources.updateConfiguration(configuration, resources.getDisplayMetrics());
-        return context;
-    }
-
-    public static void clearLanguagePreference(Context context) {
-        SharedPreferences preferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.remove(SELECTED_LANGUAGE);
-        editor.remove(SELECTED_COUNTRY);
-        editor.apply();
+        Configuration configuration = new Configuration(resources.getConfiguration());
+        configuration.setLocale(locale);
+        configuration.setLayoutDirection(locale);
+        return context.createConfigurationContext(configuration);
     }
 }

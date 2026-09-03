@@ -222,7 +222,7 @@ public class LoginActivity extends AppCompatActivity {
                         this,
                         getString(R.string.google_signin_error, e.getStatusCode(), e.getMessage()),
                         Toast.LENGTH_LONG
-                ).show();
+                )                .show();
             }
         }
     }

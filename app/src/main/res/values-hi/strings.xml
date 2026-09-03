@@ -106,4 +106,25 @@
     <string name="back_to">वापस जाएं</string>
     <string name="forget_password_button">पासवर्ड भूल गए</string>
     <string name="check_email">कृपया अपना ईमेल जांचें</string>
+
+    <string name="chatbot">चैटबॉट</string>
+    <string name="message_hint">संदेश ...</string>
+    <string name="write_something">कुछ लिखें</string>
+    <string name="splash_title">एआई-संचालित खर्च\nप्रबंधक ऐप</string>
+    <string name="splash_subtitle">एआई अंतर्दृष्टि के साथ अपने वित्त को ट्रैक, प्रबंधित\nऔर विश्लेषण करें</string>
+    <string name="onboarding_title_1">FinTrack में आपका स्वागत है</string>
+    <string name="onboarding_title_2">ट्रैक • विश्लेषण • सुधार</string>
+    <string name="onboarding_title_3">बेहतर पैसे की आदतें बनाएं</string>
+    <string name="onboarding_subtitle_1">स्मार्ट खर्च, बेहतर बचत और स्पष्ट वित्तीय समझ\nके लिए आपका एआई साथी।</string>
+    <string name="onboarding_subtitle_2">साफ विज़ुअल, स्मार्ट अंतर्दृष्टि और खर्च पैटर्न से\nअपने खर्च को समझें।</string>
+    <string name="onboarding_subtitle_3">बजट तय करें, व्यवस्थित रहें और एआई चैटबॉट से\nआत्मविश्वास से फैसले लें।</string>
+    <string name="advertisement_space">विज्ञापन स्थान</string>
+    <string name="check_whats_new">नया क्या है देखें</string>
+    <string name="how_can_i_assist">आज मैं आपकी कैसे मदद कर सकता हूँ?</string>
+    <string name="email_already_registered_different">यह ईमेल किसी दूसरे खाते से जुड़ा है। कृपया उसी ईमेल से लॉगिन करें या दूसरा ईमेल उपयोग करें।</string>
+    <string name="failed_to_link_email">ईमेल लिंक नहीं हो सका: %1$s</string>
+    <string name="failed_to_save_user">उपयोगकर्ता डेटा सहेजा नहीं जा सका: %1$s</string>
+    <string name="unknown_linking_error">अज्ञात लिंक त्रुटि</string>
+    <string name="selected_language">चयनित भाषा</string>
+
 </resources>

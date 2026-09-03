@@ -106,4 +106,25 @@
     <string name="back_to">Вернуться к</string>
     <string name="forget_password_button">ЗАБЫЛИ ПАРОЛЬ</string>
     <string name="check_email">Пожалуйста, Проверьте Ваш Email</string>
+
+    <string name="chatbot">Чат-бот</string>
+    <string name="message_hint">Сообщение ...</string>
+    <string name="write_something">Напишите что-нибудь</string>
+    <string name="splash_title">Приложение для расходов\nна базе ИИ</string>
+    <string name="splash_subtitle">Отслеживайте, управляйте и анализируйте финансы\nс помощью ИИ</string>
+    <string name="onboarding_title_1">Добро пожаловать в FinTrack</string>
+    <string name="onboarding_title_2">Учёт • Анализ • Улучшение</string>
+    <string name="onboarding_title_3">Лучшие денежные привычки</string>
+    <string name="onboarding_subtitle_1">ИИ-помощник для разумных трат,\nнакоплений и ясности в финансах.</string>
+    <string name="onboarding_subtitle_2">Понимайте расходы через графики\nи актуальные инсайты.</string>
+    <string name="onboarding_subtitle_3">Задавайте бюджеты и принимайте решения\nс ИИ-чатботом.</string>
+    <string name="advertisement_space">Рекламное место</string>
+    <string name="check_whats_new">Что нового</string>
+    <string name="how_can_i_assist">Чем я могу помочь сегодня?</string>
+    <string name="email_already_registered_different">Эта почта уже привязана к другому аккаунту. Войдите с ней или используйте другую.</string>
+    <string name="failed_to_link_email">Не удалось привязать почту: %1$s</string>
+    <string name="failed_to_save_user">Не удалось сохранить данные: %1$s</string>
+    <string name="unknown_linking_error">Неизвестная ошибка привязки</string>
+    <string name="selected_language">Выбранный язык</string>
+
 </resources>

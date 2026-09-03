@@ -3,10 +3,10 @@
     <item
         android:id="@+id/chatbot"
         android:icon="@drawable/ic_setting_unselected"
-        android:title="Chatbot"/>
+        android:title="@string/chatbot"/>
 
     <item
         android:id="@+id/accounts"
         android:icon="@drawable/ic_contacts_unselected"
-        android:title="Profile"/>
+        android:title="@string/profile"/>
 </menu>

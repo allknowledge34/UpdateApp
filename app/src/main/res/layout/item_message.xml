@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/send_message_back"
                 android:padding="10dp"
-                android:text="How can I assist you today?" />
+                android:text="@string/how_can_i_assist" />
         </LinearLayout>
 
         <ImageView
@@ -71,7 +71,7 @@
                 android:background="@drawable/send_message_back"
                 android:backgroundTint="#EFF6F5"
                 android:padding="10dp"
-                android:text="How can I assist you today?" />
+                android:text="@string/how_can_i_assist" />
         </LinearLayout>
 
         <ImageView

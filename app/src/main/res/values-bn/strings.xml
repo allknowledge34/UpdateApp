@@ -106,4 +106,25 @@
     <string name="back_to">ফিরে যান</string>
     <string name="forget_password_button">পাসওয়ার্ড ভুলে গেছেন</string>
     <string name="check_email">অনুগ্রহ করে আপনার ইমেইল চেক করুন</string>
+
+    <string name="chatbot">চ্যাটবট</string>
+    <string name="message_hint">বার্তা ...</string>
+    <string name="write_something">কিছু লিখুন</string>
+    <string name="splash_title">এআই-চালিত খরচ\nম্যানেজার অ্যাপ</string>
+    <string name="splash_subtitle">এআই অন্তর্দৃষ্টি দিয়ে আপনার অর্থ ট্র্যাক,\nপরিচালনা ও বিশ্লেষণ করুন</string>
+    <string name="onboarding_title_1">FinTrack-এ স্বাগতম</string>
+    <string name="onboarding_title_2">ট্র্যাক • বিশ্লেষণ • উন্নতি</string>
+    <string name="onboarding_title_3">ভালো অর্থ অভ্যাস গড়ুন</string>
+    <string name="onboarding_subtitle_1">স্মার্ট খরচ, ভালো সঞ্চয় ও স্পষ্ট আর্থিক ধারণার\nজন্য আপনার এআই সঙ্গী।</string>
+    <string name="onboarding_subtitle_2">পরিষ্কার ভিজ্যুয়াল ও স্মার্ট ইনসাইট দিয়ে খরচ বুঝুন।</string>
+    <string name="onboarding_subtitle_3">বাজেট ঠিক করুন এবং এআই চ্যাটবট দিয়ে সিদ্ধান্ত নিন।</string>
+    <string name="advertisement_space">বিজ্ঞাপনের স্থান</string>
+    <string name="check_whats_new">নতুন কী দেখুন</string>
+    <string name="how_can_i_assist">আজ আমি কীভাবে সাহায্য করতে পারি?</string>
+    <string name="email_already_registered_different">এই ইমেইল অন্য অ্যাকাউন্টে নিবন্ধিত। সেই ইমেইল দিয়ে লগইন করুন বা অন্য ইমেইল ব্যবহার করুন।</string>
+    <string name="failed_to_link_email">ইমেইল লিঙ্ক করা যায়নি: %1$s</string>
+    <string name="failed_to_save_user">ব্যবহারকারীর তথ্য সংরক্ষণ যায়নি: %1$s</string>
+    <string name="unknown_linking_error">অজানা লিঙ্ক ত্রুটি</string>
+    <string name="selected_language">নির্বাচিত ভাষা</string>
+
 </resources>

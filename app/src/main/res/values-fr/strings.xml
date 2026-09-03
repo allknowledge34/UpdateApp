@@ -106,4 +106,25 @@
     <string name="back_to">Retour à</string>
     <string name="forget_password_button">MOT DE PASSE OUBLIÉ</string>
     <string name="check_email">Veuillez Vérifier Votre Email</string>
+
+    <string name="chatbot">Chatbot</string>
+    <string name="message_hint">Message ...</string>
+    <string name="write_something">Écrivez quelque chose</string>
+    <string name="splash_title">Application de dépenses\npropulsée par l\'IA</string>
+    <string name="splash_subtitle">Suivez, gérez et analysez vos finances\navec des insights IA</string>
+    <string name="onboarding_title_1">Bienvenue sur FinTrack</string>
+    <string name="onboarding_title_2">Suivre • Analyser • Améliorer</string>
+    <string name="onboarding_title_3">De meilleures habitudes d\'argent</string>
+    <string name="onboarding_subtitle_1">Votre compagnon IA pour dépenser plus malin\net voir vos finances clairement.</string>
+    <string name="onboarding_subtitle_2">Comprenez vos dépenses avec des visuels clairs\net des insights en temps réel.</string>
+    <string name="onboarding_subtitle_3">Fixez des budgets et décidez sereinement\navec le chatbot IA.</string>
+    <string name="advertisement_space">Espace publicitaire</string>
+    <string name="check_whats_new">Voir les nouveautés</string>
+    <string name="how_can_i_assist">Comment puis-je vous aider aujourd\'hui ?</string>
+    <string name="email_already_registered_different">Cet e-mail est déjà lié à un autre compte. Connectez-vous avec cet e-mail ou utilisez-en un autre.</string>
+    <string name="failed_to_link_email">Impossible de lier l\'e-mail : %1$s</string>
+    <string name="failed_to_save_user">Impossible d\'enregistrer les données : %1$s</string>
+    <string name="unknown_linking_error">Erreur de liaison inconnue</string>
+    <string name="selected_language">Langue sélectionnée</string>
+
 </resources>

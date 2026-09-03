@@ -106,4 +106,25 @@
     <string name="back_to">واپس جائیں</string>
     <string name="forget_password_button">پاس ورڈ بھول گئے</string>
     <string name="check_email">براہ کرم اپنا ای میل چیک کریں</string>
+
+    <string name="chatbot">چیٹ بوٹ</string>
+    <string name="message_hint">پیغام ...</string>
+    <string name="write_something">کچھ لکھیں</string>
+    <string name="splash_title">اے آئی سے چلنے والی\nخرچ ایپ</string>
+    <string name="splash_subtitle">اے آئی کی مدد سے اپنے مالیات کو ٹریک،\nمنظم اور جانچیں</string>
+    <string name="onboarding_title_1">FinTrack میں خوش آمدید</string>
+    <string name="onboarding_title_2">ٹریک • تجزیہ • بہتری</string>
+    <string name="onboarding_title_3">بہتر مالی عادات بنائیں</string>
+    <string name="onboarding_subtitle_1">سمارٹ خرچ، بہتر بچت اور واضح مالیات کے لیے\nآپ کا اے آئی ساتھی۔</string>
+    <string name="onboarding_subtitle_2">صاف بصری اور سمارٹ بصیرت سے اپنے اخراجات سمجھیں۔</string>
+    <string name="onboarding_subtitle_3">بجٹ طے کریں اور اے آئی چیٹ بوٹ سے فیصلے کریں۔</string>
+    <string name="advertisement_space">اشتہاری جگہ</string>
+    <string name="check_whats_new">نیا کیا ہے دیکھیں</string>
+    <string name="how_can_i_assist">آج میں آپ کی کیسے مدد کر سکتا ہوں؟</string>
+    <string name="email_already_registered_different">یہ ای میل دوسرے اکاؤنٹ سے منسلک ہے۔ اسی ای میل سے لاگ ان کریں یا دوسری استعمال کریں۔</string>
+    <string name="failed_to_link_email">ای میل منسلک نہیں ہو سکی: %1$s</string>
+    <string name="failed_to_save_user">یوزر ڈیٹا محفوظ نہیں ہو سکا: %1$s</string>
+    <string name="unknown_linking_error">نامعلوم لنک خرابی</string>
+    <string name="selected_language">منتخب زبان</string>
+
 </resources>

@@ -106,4 +106,25 @@
     <string name="back_to">العودة إلى</string>
     <string name="forget_password_button">نسيت كلمة المرور</string>
     <string name="check_email">يرجى التحقق من بريدك الإلكتروني</string>
+
+    <string name="chatbot">الدردشة</string>
+    <string name="message_hint">رسالة ...</string>
+    <string name="write_something">اكتب شيئاً</string>
+    <string name="splash_title">تطبيق إدارة مصروفات\nمدعوم بالذكاء الاصطناعي</string>
+    <string name="splash_subtitle">تتبع أموالك وأدرها وحلّلها بسهولة\nبمساعدة الذكاء الاصطناعي</string>
+    <string name="onboarding_title_1">مرحباً بك في FinTrack</string>
+    <string name="onboarding_title_2">تتبع • حلّل • حسّن</string>
+    <string name="onboarding_title_3">ابنِ عادات مالية أفضل</string>
+    <string name="onboarding_subtitle_1">رفيقك بالذكاء الاصطناعي لإنفاق أذكى\nوتوفير أوضح.</string>
+    <string name="onboarding_subtitle_2">افهم مصروفاتك برسوم واضحة ورؤى ذكية.</string>
+    <string name="onboarding_subtitle_3">حدد الميزانيات ونظّم قراراتك مع روبوت الدردشة.</string>
+    <string name="advertisement_space">مساحة إعلانية</string>
+    <string name="check_whats_new">اطلع على الجديد</string>
+    <string name="how_can_i_assist">كيف يمكنني مساعدتك اليوم؟</string>
+    <string name="email_already_registered_different">هذا البريد مسجّل بحساب آخر. سجّل الدخول به أو استخدم بريداً آخر.</string>
+    <string name="failed_to_link_email">تعذر ربط البريد: %1$s</string>
+    <string name="failed_to_save_user">تعذر حفظ بيانات المستخدم: %1$s</string>
+    <string name="unknown_linking_error">خطأ ربط غير معروف</string>
+    <string name="selected_language">اللغة المحددة</string>
+
 </resources>

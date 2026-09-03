@@ -66,7 +66,7 @@ public class LanguageActivity extends AppCompatActivity implements LanguageAdapt
         languageList = new ArrayList<>();
         
         // Add all 10 supported languages
-        languageList.add(new LanguageModel(getString(R.string.lang_english), "en", "US"));
+        languageList.add(new LanguageModel(getString(R.string.lang_english), "en", ""));
         languageList.add(new LanguageModel(getString(R.string.lang_chinese), "zh", "CN"));
         languageList.add(new LanguageModel(getString(R.string.lang_hindi), "hi", "IN"));
         languageList.add(new LanguageModel(getString(R.string.lang_spanish), "es", "ES"));
@@ -77,18 +77,17 @@ public class LanguageActivity extends AppCompatActivity implements LanguageAdapt
         languageList.add(new LanguageModel(getString(R.string.lang_russian), "ru", "RU"));
         languageList.add(new LanguageModel(getString(R.string.lang_urdu), "ur", "PK"));
 
-        // Set current language as selected
         String currentLanguage = LocaleHelper.getLanguage(this);
+        boolean found = false;
         for (int i = 0; i < languageList.size(); i++) {
             if (languageList.get(i).getLanguageCode().equals(currentLanguage)) {
                 languageList.get(i).setSelected(true);
                 selectedPosition = i;
+                found = true;
                 break;
             }
         }
-        
-        // If no match found, default to English (position 0)
-        if (selectedPosition == 0 && !currentLanguage.equals("en")) {
+        if (!found) {
             languageList.get(0).setSelected(true);
             selectedPosition = 0;
         }

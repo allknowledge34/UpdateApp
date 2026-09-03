@@ -106,4 +106,25 @@
     <string name="back_to">Voltar para</string>
     <string name="forget_password_button">ESQUECI A SENHA</string>
     <string name="check_email">Por Favor Verifique Seu Email</string>
+
+    <string name="chatbot">Chatbot</string>
+    <string name="message_hint">Mensagem ...</string>
+    <string name="write_something">Escreva algo</string>
+    <string name="splash_title">App de despesas\ncom IA</string>
+    <string name="splash_subtitle">Acompanhe, gerencie e analise suas finanças\ncom insights de IA</string>
+    <string name="onboarding_title_1">Bem-vindo ao FinTrack</string>
+    <string name="onboarding_title_2">Acompanhe • Analise • Melhore</string>
+    <string name="onboarding_title_3">Melhores hábitos com dinheiro</string>
+    <string name="onboarding_subtitle_1">Seu companheiro de IA para gastar melhor\ne ver as finanças com clareza.</string>
+    <string name="onboarding_subtitle_2">Entenda seus gastos com visuais claros\ne insights em tempo real.</string>
+    <string name="onboarding_subtitle_3">Defina orçamentos e decida com confiança\ncom o chatbot de IA.</string>
+    <string name="advertisement_space">Espaço publicitário</string>
+    <string name="check_whats_new">Veja as novidades</string>
+    <string name="how_can_i_assist">Como posso ajudar hoje?</string>
+    <string name="email_already_registered_different">Este e-mail já está em outra conta. Entre com esse e-mail ou use outro.</string>
+    <string name="failed_to_link_email">Falha ao vincular o e-mail: %1$s</string>
+    <string name="failed_to_save_user">Falha ao salvar os dados: %1$s</string>
+    <string name="unknown_linking_error">Erro de vinculação desconhecido</string>
+    <string name="selected_language">Idioma selecionado</string>
+
 </resources>
